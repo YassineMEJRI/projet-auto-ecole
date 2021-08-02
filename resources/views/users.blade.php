@@ -1,7 +1,11 @@
-<ul>
-    @foreach($users as $user)
+@extends('layouts.app')
+@section('content')
+    <h2>Users List</h2>
+    <ul class="list-group">
+        @foreach($users as $user)
 
-            <li>{{ $user->name }}  {{ $user->id }}</li>
+                <li class="list-group-item">{{ $user->name }}  {{ $user->id }}</li>
 
-    @endforeach
-</ul>
+        @endforeach
+    </ul>
+@endsection

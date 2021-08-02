@@ -21,7 +21,8 @@ Route::get('/', function () {
 });
 
 Route::get('/about', function (){
-    return view('about');
+    //return view('about');
+    return view('layouts.app');
 });
 
 Route::get('/vehicules/{id}', function ($id){
@@ -34,3 +35,9 @@ Route::get('/users', function (){
         'users' => User::all()
     ]);
 });
+
+Route::resource('vehicules', 'App\Http\Controllers\VehiculesController');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
