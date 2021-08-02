@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+   // return view('welcome');
+
+    return "<h1>Welcome!</h1>";
+});
+
+Route::get('/about', function (){
+    return view('about');
+});
+
+Route::get('/vehicules/{id}', function ($id){
+    $vehicule = \App\Models\Vehicule::find($id);
+    return $vehicule->matricule;
+});
+
+Route::get('/users', function (){
+    return view('users', [
+        'users' => User::all()
+    ]);
 });
