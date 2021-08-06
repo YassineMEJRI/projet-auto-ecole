@@ -6,4 +6,5 @@
         @endif
         !
     </h1>
+    <a href="/vehicules/create">Ajouter un nouveau vehicule.</a>
 @endsection
