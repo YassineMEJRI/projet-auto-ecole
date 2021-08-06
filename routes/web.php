@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\TestController;
 use App\Models\User;
+use App\Models\Vehicule;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,10 +25,6 @@ Route::get('/about', function (){
     return view('layouts.app');
 });
 
-Route::get('/vehicules/{id}', function ($id){
-    $vehicule = \App\Models\Vehicule::find($id);
-    return $vehicule->matricule;
-});
 
 Route::get('/users', function (){
     return view('users', [

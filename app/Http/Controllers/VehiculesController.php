@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Vehicule;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
 class VehiculesController extends Controller
@@ -13,7 +15,8 @@ class VehiculesController extends Controller
      */
     public function index()
     {
-        //
+        $vehicules = Vehicule::all();
+        return view('vehicule.index')->with('vehicules', $vehicules);
     }
 
     /**
@@ -24,6 +27,7 @@ class VehiculesController extends Controller
     public function create()
     {
         //
+        return view('vehicule.create');
     }
 
     /**
@@ -34,7 +38,25 @@ class VehiculesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'matricule' => 'required',
+            'type' => 'required'
+        ]);
+
+        $vehicule = new Vehicule();
+        $vehicule->matricule = $request->matricule;
+        $vehicule->type = $request->type;
+        if($request->etat == "horsservice")
+            $vehicule->horsService = 1;
+        else
+            $vehicule->horsService = 0;
+        try {
+            $vehicule->save();
+        }catch(QueryException $ex){
+            return redirect('/vehicules/create')->with('error', 'Matricule existe déja!');
+        }
+
+        return redirect('/vehicules')->with('success', 'Vehicule ajouté!');
     }
 
     /**
@@ -45,7 +67,7 @@ class VehiculesController extends Controller
      */
     public function show($id)
     {
-        //
+        return "test";
     }
 
     /**
@@ -56,7 +78,8 @@ class VehiculesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $vehicule = Vehicule::find($id);
+        return view('vehicule.edit')->with('vehicule', $vehicule);
     }
 
     /**
@@ -68,7 +91,24 @@ class VehiculesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'matricule' => 'required',
+            'type' => 'required'
+        ]);
+
+        $vehicule = Vehicule::find($id);
+        $vehicule->matricule = $request->matricule;
+        $vehicule->type = $request->type;
+        if($request->etat == "horsservice")
+            $vehicule->horsService = 1;
+        else
+            $vehicule->horsService = 0;
+        try {
+            $vehicule->save();
+        }catch(QueryException $ex){
+            return redirect('/vehicules/'.$id.'/edit')->with('error', 'Matricule existe déja!');
+        }
+        return redirect('/vehicules')->with('success', "Données mises a jour avec succés!");
     }
 
     /**
@@ -79,6 +119,8 @@ class VehiculesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $vehicule = Vehicule::find($id);
+        $vehicule->delete();
+        return redirect('/vehicules')->with('success', 'Vehicule supprimé avec succés!');
     }
 }

@@ -16,6 +16,7 @@ class CreateVehiculesTable extends Migration
         Schema::create('vehicules', function (Blueprint $table) {
             $table->id();
             $table->string('matricule')->unique();
+            $table->string('type');
             $table->boolean('horsService')->default(true);
             $table->timestamps();
         });
