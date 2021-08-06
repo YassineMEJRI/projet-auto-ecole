@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TestController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -15,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-   // return view('welcome');
-
-    return "<h1>Welcome!</h1>";
+    return view('welcome');
 });
 
 Route::get('/about', function (){
@@ -35,6 +34,8 @@ Route::get('/users', function (){
         'users' => User::all()
     ]);
 });
+
+Route::get('/test', [TestController::class,'index']);
 
 Route::resource('vehicules', 'App\Http\Controllers\VehiculesController');
 
