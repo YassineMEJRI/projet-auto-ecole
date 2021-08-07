@@ -39,3 +39,4 @@ Route::resource('vehicules', 'App\Http\Controllers\VehiculesController');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
