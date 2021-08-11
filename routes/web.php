@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\TestController;
 use App\Models\User;
 use App\Models\Vehicule;
@@ -21,8 +22,8 @@ Route::get('/', function () {
 });
 
 Route::get('/about', function (){
-    //return view('about');
-    return view('layouts.app');
+    return view('about');
+    //return view('layouts.app');
 });
 
 
@@ -32,11 +33,15 @@ Route::get('/users', function (){
     ]);
 });
 
-Route::get('/test', [TestController::class,'index']);
-
 Route::resource('vehicules', 'App\Http\Controllers\VehiculesController');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/test', [TestController::class,'index'])->middleware('auth');
+
+Route::get('/nextquestion', [TestController::class,'nextQuestion']);
+
+Route::get('/quiz/ajouter', [QuestionController::class,'create']);
+Route::post('/quiz/ajouter', [QuestionController::class,'store']);
