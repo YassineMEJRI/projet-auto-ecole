@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <h1>Ajouter un vehicule</h1>
-        <form method="POST" action="/vehicules">
+        <form method="POST" action="/vehicules" enctype="multipart/form-data" >
             @csrf
             <div class="row mb-3">
                 <label for="matricule" class="col-sm-2 col-form-label">Matricule</label>
@@ -15,6 +15,16 @@
                 <div class="col-sm-10">
                     <input type="text" name="type" class="form-control" id="type">
                 </div>
+            </div>
+            <div class="row mb-3">
+                <label for="visite" class="col-sm-2 col-form-label">Prochaine date de visite</label>
+                <div class="col-sm-10">
+                    <input type="date" name="visite" class="form-control" id="visite">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Telecharger une image du véhicule</label>
+                <input class="form-control" type="file" name="image" id="image">
             </div>
             <fieldset class="row mb-3">
                 <legend class="col-form-label col-sm-2 pt-0">Etat</legend>

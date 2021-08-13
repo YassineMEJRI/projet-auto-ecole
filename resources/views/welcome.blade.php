@@ -7,4 +7,10 @@
         !
     </h1>
     <a href="/vehicules/create">Ajouter un nouveau vehicule.</a>
+    <br>
+    <a href="/vehicules">Afficher la liste des vehicules.</a>
+    <br>
+    <a href="/test">Passer un Quiz</a>
+    <br>
+    <a href="/quiz/ajouter">Ajouter une question de quiz</a>
 @endsection

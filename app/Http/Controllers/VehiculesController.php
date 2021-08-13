@@ -50,6 +50,15 @@ class VehiculesController extends Controller
             $vehicule->horsService = 1;
         else
             $vehicule->horsService = 0;
+
+        if($request->hasFile('image')){
+            $request->validate([
+                'image' =>'mimes:jpeg,jpg,png,bmp'
+            ]);
+            $path = $request->image->store('images');
+            $vehicule->image = $path;
+        }
+
         try {
             $vehicule->save();
         }catch(QueryException $ex){

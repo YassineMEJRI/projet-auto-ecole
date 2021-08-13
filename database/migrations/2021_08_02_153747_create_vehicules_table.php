@@ -18,6 +18,8 @@ class CreateVehiculesTable extends Migration
             $table->string('matricule')->unique();
             $table->string('type');
             $table->boolean('horsService')->default(true);
+            $table->string('image');
+            $table->date('visite');
             $table->timestamps();
         });
     }
