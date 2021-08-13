@@ -21,6 +21,13 @@ class QuestionController extends Controller
 
         $question = new Question();
         $question->body = $request->enonce;
+        if($request->hasFile('image')){
+            $request->validate([
+                'image' =>'mimes:jpeg,jpg,png,bmp'
+            ]);
+            $path = $request->image->store('public/images');
+            $question->image = basename($path);
+        }
         $question->save();
 
         $reponse1 = new Reponse();

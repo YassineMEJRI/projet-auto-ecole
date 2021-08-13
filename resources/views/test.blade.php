@@ -4,6 +4,7 @@
     <div class="container">
         <h3 class="text-center">Question N°</h3><h3 class="text-center rounded-circle" id="questionnumber"></h3>
         <h2 id="question" ></h2>
+        <img id="image" src="">
     </div>
     <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">
         <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
@@ -35,6 +36,7 @@
                 $.getJSON('/nextquestion',
                     function(response) {
                     $('#question').html(response[0].body);
+                    $('#image').attr("src", 'storage/images/' + response[0].image);
                     $('#questionnumber').html(response[1]);
                     $('#btnradio1text').html(response[2][0].body);
                     $('#btnradio2text').html(response[2][1].body);

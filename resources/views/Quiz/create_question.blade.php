@@ -2,13 +2,17 @@
 @section('content')
     <div class="container">
         <h1>Ajouter une Question de Quiz</h1>
-        <form method="POST" action="/quiz/ajouter">
+        <form method="POST" action="/quiz/ajouter" enctype="multipart/form-data">
             @csrf
             <div class="row mb-3">
                 <label for="enonce" class="col-sm-2 col-form-label">Enoncé de la Question</label>
                 <div class="col-sm-10">
                     <input type="text" name="enonce" class="form-control" id="enonce">
                 </div>
+            </div>
+            <div class="row mb-3">
+                <label for="image" class="form-label">Telecharger une image désriptive de l'énoncé</label>
+                <input class="form-control" type="file" name="image" id="image">
             </div>
             <div class="row mb-3">
                 <label for="rep1" class="col-sm-2 col-form-label">Reponse 1</label>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\TestController;
 use App\Models\User;
@@ -37,7 +38,7 @@ Route::resource('vehicules', 'App\Http\Controllers\VehiculesController');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/test', [TestController::class,'index'])->middleware('auth');
 
