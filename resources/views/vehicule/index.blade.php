@@ -7,6 +7,7 @@
                 <th>Matricule</th>
                 <th>Fabricant</th>
                 <th>Etat</th>
+                <th>Visite</th>
                 <th class="float-right">Actions</th>
             </tr>
             @foreach($vehicules as $vehicule)
@@ -15,6 +16,7 @@
                     <td>{{ $vehicule->matricule }}</td>
                     <td>{{ $vehicule->type }}</td>
                     <td>{{ $vehicule->horsService?"Hors Service":"En Service" }}</td>
+                    <td>{{ $vehicule->visite }}</td>
                     <td>
                         <form method="POST" action='/vehicules/{{ $vehicule->id }}' class="float-right">
                             @csrf

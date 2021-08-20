@@ -46,6 +46,7 @@ class VehiculesController extends Controller
         $vehicule = new Vehicule();
         $vehicule->matricule = $request->matricule;
         $vehicule->type = $request->type;
+        $vehicule->visite = $request->visite;
         if($request->etat == "horsservice")
             $vehicule->horsService = 1;
         else
