@@ -17,9 +17,12 @@ class CreateVehiculesTable extends Migration
             $table->id();
             $table->string('matricule')->unique();
             $table->string('type');
+            $table->string('fabricant');
             $table->boolean('horsService')->default(true);
             $table->string('image')->nullable();
             $table->date('visite')->nullable();
+            $table->unsignedBigInteger('moniteur');
+            $table->foreign('moniteur')->references('id')->on('users');
             $table->timestamps();
         });
     }

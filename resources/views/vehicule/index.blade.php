@@ -4,6 +4,7 @@
         <table class="table table-striped text-center">
             <tr>
                 <th>Id</th>
+                <th>Type</th>
                 <th>Matricule</th>
                 <th>Fabricant</th>
                 <th>Etat</th>
@@ -13,8 +14,9 @@
             @foreach($vehicules as $vehicule)
                 <tr class="{{ $vehicule->horsService?"table-danger":"" }}">
                     <td>{{ $vehicule->id }}</td>
-                    <td>{{ $vehicule->matricule }}</td>
                     <td>{{ $vehicule->type }}</td>
+                    <td>{{ $vehicule->matricule }}</td>
+                    <td>{{ $vehicule->fabricant }}</td>
                     <td>{{ $vehicule->horsService?"Hors Service":"En Service" }}</td>
                     <td>{{ $vehicule->visite }}</td>
                     <td>
