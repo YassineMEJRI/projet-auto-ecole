@@ -46,3 +46,4 @@ Route::get('/nextquestion', [TestController::class,'nextQuestion']);
 
 Route::get('/quiz/ajouter', [QuestionController::class,'create']);
 Route::post('/quiz/ajouter', [QuestionController::class,'store']);
+Route::get('/quiz/results', [TestController::class,'results']);

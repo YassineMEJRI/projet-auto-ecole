@@ -22,6 +22,9 @@
 <body>
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+            Button
+        </button>
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{ config('app.name', 'Laravel') }}
@@ -31,50 +34,6 @@
                     aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
-{{--            <div class="collapse navbar-collapse" id="navbarSupportedContent">--}}
-{{--                <!-- Left Side Of Navbar -->--}}
-{{--                <ul class="navbar-nav mr-auto">--}}
-
-{{--                </ul>--}}
-
-{{--                <!-- Right Side Of Navbar -->--}}
-{{--                <ul class="navbar-nav ml-auto">--}}
-{{--                    <!-- Authentication Links -->--}}
-{{--                    @guest--}}
-
-{{--                        @if (Route::has('login'))--}}
-{{--                            <li class="nav-item">--}}
-{{--                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>--}}
-{{--                            </li>--}}
-{{--                        @endif--}}
-
-{{--                        @if (Route::has('register'))--}}
-{{--                            <li class="nav-item">--}}
-{{--                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>--}}
-{{--                            </li>--}}
-{{--                        @endif--}}
-{{--                        --}}{{--                        @else--}}
-{{--                        --}}{{--                            <li class="nav-item dropdown">--}}
-{{--                        --}}{{--                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>--}}
-{{--                        --}}{{--                                    {{ Auth::user()->firstName }}--}}
-{{--                        --}}{{--                                </a>--}}
-
-{{--                        --}}{{--                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">--}}
-{{--                        --}}{{--                                    <a class="dropdown-item" href="{{ route('logout') }}"--}}
-{{--                        --}}{{--                                       onclick="event.preventDefault();--}}
-{{--                        --}}{{--                                                     document.getElementById('logout-form').submit();">--}}
-{{--                        --}}{{--                                        {{ __('Logout') }}--}}
-{{--                        --}}{{--                                    </a>--}}
-
-{{--                        --}}{{--                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">--}}
-{{--                        --}}{{--                                        @csrf--}}
-{{--                        --}}{{--                                    </form>--}}
-{{--                        --}}{{--                                </div>--}}
-{{--                        --}}{{--                            </li>--}}
-{{--                    @endguest--}}
-{{--                </ul>--}}
-{{--            </div>--}}
             @guest
                 <div class="d-grid gap-2 d-md-block">
                     <a role="button" href="{{ route('login') }}" class="btn btn-light">Login</a>
@@ -101,6 +60,27 @@
         </div>
     </nav>
 
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div>
+                Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+            </div>
+            <div class="dropdown mt-3">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+                    Dropdown button
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <main class="py-4 container">
         @include('messages')
         @yield('content')
