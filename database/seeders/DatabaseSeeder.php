@@ -24,6 +24,16 @@ class DatabaseSeeder extends Seeder
             'tel' => 1233221
         ]);
 
+        DB::table('users')->insert([
+            'firstName' => 'moniteur',
+            'lastName' => 'momo',
+            'cin' => '10010023',
+            'password' => Hash::make('password'),
+            'email' => 'moniteur@admin.com',
+            'droit' => 1,
+            'tel' => 1233221
+        ]);
+
         DB::table('questions')->insert([
             ['body' => 'Question de test num 1'],
             ['body' => 'Question de test num 2'],

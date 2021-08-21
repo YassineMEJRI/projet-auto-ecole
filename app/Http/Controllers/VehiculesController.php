@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\UserQuizSession;
 use App\Models\Vehicule;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class VehiculesController extends Controller
 {
@@ -22,12 +25,15 @@ class VehiculesController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function create()
     {
-        //
-        return view('vehicule.create');
+        $moniteurs = DB::table('users')
+                        ->where('droit', '=', '1')
+                        ->select('firstName', 'lastName', 'id')
+                        ->get();
+        return view('vehicule.create')->with('moniteurs', $moniteurs);
     }
 
     /**
@@ -40,13 +46,16 @@ class VehiculesController extends Controller
     {
         $this->validate($request, [
             'matricule' => 'required',
-            'type' => 'required'
+            'type' => 'required',
+            'fabricant' => 'required'
         ]);
 
         $vehicule = new Vehicule();
         $vehicule->matricule = $request->matricule;
+        $vehicule->fabricant = $request->fabricant;
         $vehicule->type = $request->type;
         $vehicule->visite = $request->visite;
+        $vehicule->moniteur = $request->moniteur;
         if($request->etat == "horsservice")
             $vehicule->horsService = 1;
         else
@@ -63,6 +72,7 @@ class VehiculesController extends Controller
         try {
             $vehicule->save();
         }catch(QueryException $ex){
+            dd($ex);
             return redirect('/vehicules/create')->with('error', 'Matricule existe déja!');
         }
 
