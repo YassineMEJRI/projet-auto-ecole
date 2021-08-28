@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container">
+    <div class="container border border-2 border-info m-3 p-3">
         <h1>Ajouter une Question de Quiz</h1>
         <form method="POST" action="/quiz/ajouter" enctype="multipart/form-data">
             @csrf
