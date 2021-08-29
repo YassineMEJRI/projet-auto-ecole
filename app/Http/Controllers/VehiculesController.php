@@ -45,13 +45,14 @@ class VehiculesController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'matricule' => 'required',
+            'matricule_1' => 'required|digits:3',
+            'matricule_2' => 'required|digits:4',
             'type' => 'required',
             'fabricant' => 'required'
         ]);
 
         $vehicule = new Vehicule();
-        $vehicule->matricule = $request->matricule;
+        $vehicule->matricule = $request->matricule_1 . "TU" . $request->matricule_2;
         $vehicule->fabricant = $request->fabricant;
         $vehicule->type = $request->type;
         $vehicule->visite = $request->visite;

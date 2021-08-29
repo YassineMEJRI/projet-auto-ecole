@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+    <h1>Ajouter un Rendez-vous</h1>
     <div class="border border-3 border-primary">
         <form method="POST" action="/rdv/ajouter">
             @csrf

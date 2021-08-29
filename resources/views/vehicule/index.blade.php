@@ -20,6 +20,7 @@
                     <td>{{ $vehicule->horsService?"Hors Service":"En Service" }}</td>
                     <td>{{ $vehicule->visite }}</td>
                     <td>
+{{--                        TODO delete confirmation--}}
                         <form method="POST" action='/vehicules/{{ $vehicule->id }}' class="float-right">
                             @csrf
                             @method('DELETE')
