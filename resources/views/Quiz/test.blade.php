@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+{{--    TODO styling--}}
     <a role="button" id="start_quiz" class="btn btn-primary btn-lg">Commencer le Quiz</a>
 
     <div id="test_container" style="display: none">

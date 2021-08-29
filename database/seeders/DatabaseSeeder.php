@@ -55,6 +55,7 @@ class DatabaseSeeder extends Seeder
             'tel' => 65784595
         ]);
 
+//        TODO populate with 30 questions and answers
         DB::table('questions')->insert([
             ['body' => 'Question de test num 1'],
             ['body' => 'Question de test num 2'],
