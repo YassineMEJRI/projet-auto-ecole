@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             'cin' => '12349678',
             'password' => Hash::make('password'),
             'email' => 'admin@admin.com',
+            'droit' => 2,
             'tel' => 1233221
         ]);
 
@@ -31,7 +32,27 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('password'),
             'email' => 'moniteur@admin.com',
             'droit' => 1,
-            'tel' => 1233221
+            'tel' => 32025025
+        ]);
+
+        DB::table('users')->insert([
+            'firstName' => 'moniteur',
+            'lastName' => 'bobo',
+            'cin' => '10080023',
+            'password' => Hash::make('password'),
+            'email' => 'moniteurboo@admin.com',
+            'droit' => 1,
+            'tel' => 22658457
+        ]);
+
+        DB::table('users')->insert([
+            'firstName' => 'Mark',
+            'lastName' => 'Wahlberg',
+            'cin' => '91196622',
+            'password' => Hash::make('123456789'),
+            'email' => 'mark@gmail.com',
+            'droit' => 0,
+            'tel' => 65784595
         ]);
 
         DB::table('questions')->insert([

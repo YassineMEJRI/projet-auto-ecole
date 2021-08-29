@@ -13,4 +13,11 @@
     <a href="/test">Passer un Quiz</a>
     <br>
     <a href="/quiz/ajouter">Ajouter une question de quiz</a>
+    <br>
+    <a href="/users">Liste des utilisateurs</a>
+    <br>
+    <a href="/rdv/ajouter">Ajouter un rendez-vous</a>
+    <br>
+    <a href="/rdv/list">Liste des rendez-vous</a>
+
 @endsection

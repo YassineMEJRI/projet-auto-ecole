@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\RdvController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\UsersController;
 use App\Models\User;
 use App\Models\Vehicule;
 use Illuminate\Support\Facades\Route;
@@ -28,11 +30,7 @@ Route::get('/about', function (){
 });
 
 
-Route::get('/users', function (){
-    return view('users', [
-        'users' => User::all()
-    ]);
-});
+Route::get('/users', [UsersController::class, 'index']);
 
 Route::resource('vehicules', 'App\Http\Controllers\VehiculesController');
 
@@ -47,3 +45,9 @@ Route::get('/nextquestion', [TestController::class,'nextQuestion']);
 Route::get('/quiz/ajouter', [QuestionController::class,'create']);
 Route::post('/quiz/ajouter', [QuestionController::class,'store']);
 Route::get('/quiz/results', [TestController::class,'results']);
+
+Route::get('/rdv/ajouter', [RdvController::class,'ajouter']);
+Route::post('/rdv/ajouter', [RdvController::class,'store']);
+Route::get('/rdv/list', [RdvController::class,'index']);
+Route::post('/rdv/reserver/{id}', [RdvController::class, 'reserver']);
+
