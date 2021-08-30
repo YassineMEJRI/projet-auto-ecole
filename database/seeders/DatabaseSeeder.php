@@ -56,61 +56,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
 //        TODO populate with 30 questions and answers
-        DB::table('questions')->insert([
-            ['body' => 'Question de test num 1'],
-            ['body' => 'Question de test num 2'],
-            ['body' => 'Question de test num 3'],
-            ['body' => 'Question de test num 4']
-        ]);
 
-        DB::table('reponses')->insert([
-            ['question_id' => 1,
-            'body' => 'Reponse de test num 1'],
-
-            ['question_id' => 1,
-                'body' => 'Reponse de test num 2'],
-
-            ['question_id' => 1,
-                'body' => 'Reponse de test num 3'],
-
-            ['question_id' => 1,
-                'body' => 'Reponse de test num 4'],
-
-            ['question_id' => 2,
-                'body' => 'Reponse de test 2 num 1'],
-
-            ['question_id' => 2,
-                'body' => 'Reponse de test 2 num 2'],
-
-            ['question_id' => 2,
-                'body' => 'Reponse de test 2 num 3'],
-
-            ['question_id' => 2,
-                'body' => 'Reponse de test 2 num 4'],
-
-            ['question_id' => 3,
-                'body' => 'Reponse de test num 1'],
-
-            ['question_id' => 3,
-                'body' => 'Reponse de test num 2'],
-
-            ['question_id' => 3,
-                'body' => 'Reponse de test num 3'],
-
-            ['question_id' => 3,
-                'body' => 'Reponse de test num 4'],
-
-            ['question_id' => 4,
-                'body' => 'Reponse de test 2 num 1'],
-
-            ['question_id' => 4,
-                'body' => 'Reponse de test 2 num 2'],
-
-            ['question_id' => 4,
-                'body' => 'Reponse de test 2 num 3'],
-
-            ['question_id' => 4,
-                'body' => 'Reponse de test 2 num 4']
-        ]);
+        $this->call(ReponsesTableSeeder::class);
+        $this->call(QuestionsTableSeeder::class);
     }
 }

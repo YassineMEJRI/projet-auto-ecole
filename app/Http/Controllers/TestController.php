@@ -13,16 +13,15 @@ class TestController extends Controller
 {
     //
     public function index(Request $request){
-        if (!$request->session()->exists('questions')) {
-            $questions = Question::all();
-
+        //if (!$request->session()->exists('questions')) {
+            $questions = Question::all()->random(30)->shuffle();
             session([
                 'questions' => $questions,
                 'qNumber' => 0
             ]);
 
 
-        }
+        //}
             return view('Quiz.test');
     }
 
@@ -40,9 +39,7 @@ class TestController extends Controller
             $useranswer->save();
         }
 
-
-
-        if($qn < $questions->count()) {
+        if($qn < 30/*$questions->count()*/) {
             $qn++ ;
             $request->session()->put('qNumber', $qn);
             $answers = $questions[$qn - 1]->reponses;

@@ -23,7 +23,7 @@ class QuestionController extends Controller
         $question->body = $request->enonce;
         if($request->hasFile('image')){
             $request->validate([
-                'image' =>'mimes:jpeg,jpg,png,bmp'
+                'image' =>'mimes:jpeg,jpg,png,bmp,gif'
             ]);
             $path = $request->image->store('public/images');
             $question->image = basename($path);
@@ -61,7 +61,7 @@ class QuestionController extends Controller
                 $reponse4->correct = 1;
             $reponse4->save();
         }
-        return redirect('/')->with('success','Question ajoutée avec succées');
+        return redirect('/quiz/ajouter')->with('success','Question ajoutée avec succées');
     }
 
 }
