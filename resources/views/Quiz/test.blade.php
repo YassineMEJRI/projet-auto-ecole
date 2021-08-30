@@ -70,17 +70,27 @@
                         $('#questionId').attr("value", response[0].id);
                         $('#btnradio1text').html(response[2][0].body);
                         $('#btnradio2text').html(response[2][1].body);
-                        $('#btnradio3text').html(response[2][2].body);
-                        $('#btnradio4text').html(response[2][3].body);
+                        if(response[2][2]) {
+                            $('#btnradio3text').html(response[2][2].body);
+                            $('#btnradio3').attr("value", response[2][2].id);
+                            $('#btnradio3text').show();
+                        }else{
+                            $('#btnradio3text').hide();
+                        }
+                        if(response[2][3]) {
+                            $('#btnradio4text').html(response[2][3].body);
+                            $('#btnradio4').attr("value", response[2][3].id);
+                            $('#btnradio4text').show();
+                        }else{
+                            $('#btnradio4text').hide();
+                        }
 
                         $('#btnradio1').attr("value", response[2][0].id);
                         $('#btnradio2').attr("value", response[2][1].id);
-                        $('#btnradio3').attr("value", response[2][2].id);
-                        $('#btnradio4').attr("value", response[2][3].id);
 
                         $('#progress').width(response[1] * 100 / 30 + '%');
 
-                        if(response[1] == '4'){
+                        if(response[1] == 30){
                             $("#next").attr("href", "quiz/results");
                             $("#next").html("Finish");
 
