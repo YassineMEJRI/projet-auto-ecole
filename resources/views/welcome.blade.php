@@ -19,5 +19,7 @@
     <a href="/rdv/ajouter">Ajouter un rendez-vous</a>
     <br>
     <a href="/rdv/list">Liste des rendez-vous</a>
+    <br>
+    <a href="/about">Page d'acceuil</a>
 
 @endsection
