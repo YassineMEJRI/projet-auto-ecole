@@ -16,6 +16,10 @@ class VehiculesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct(){
+        $this->middleware('auth');
+        $this->middleware('hasRole:admin');
+    }
     public function index()
     {
         $vehicules = Vehicule::all();
@@ -45,8 +49,8 @@ class VehiculesController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'matricule_1' => 'required|digits:3',
-            'matricule_2' => 'required|digits:4',
+            'matricule_1' => 'required|digits_between:2,3',
+            'matricule_2' => 'required|digits_between:1,4',
             'type' => 'required',
             'fabricant' => 'required'
         ]);

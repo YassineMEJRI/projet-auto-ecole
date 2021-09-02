@@ -43,4 +43,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function hasRole($role): bool
+    {
+        switch ($role){
+            case "admin": {
+                if($this->droit == 2)
+                    return true;
+            }
+            case "moniteur": {
+                if($this->droit != 0 )
+                    return true;
+            }
+        }
+        return false;
+    }
 }
