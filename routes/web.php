@@ -42,12 +42,12 @@ Route::get('/test', [TestController::class,'index'])->middleware('auth');
 
 Route::get('/nextquestion', [TestController::class,'nextQuestion']);
 
-Route::get('/quiz/ajouter', [QuestionController::class,'create']);
+Route::get('/quiz/ajouter', [QuestionController::class,'create'])->middleware('auth','hasRole:admin');
 Route::post('/quiz/ajouter', [QuestionController::class,'store']);
 Route::get('/quiz/results', [TestController::class,'results']);
 
 Route::get('/rdv/ajouter', [RdvController::class,'ajouter']);
 Route::post('/rdv/ajouter', [RdvController::class,'store']);
-Route::get('/rdv/list', [RdvController::class,'index']);
+Route::get('/rdv/list', [RdvController::class,'index'])->middleware('auth','hasRole:moniteur');
 Route::post('/rdv/reserver/{id}', [RdvController::class, 'reserver']);
 
