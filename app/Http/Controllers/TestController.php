@@ -14,6 +14,9 @@ class TestController extends Controller
     //
     public function index(Request $request){
         //if (!$request->session()->exists('questions')) {
+            DB::table('user_quiz_sessions')
+                ->where('user_id', '=', Auth::user()->id)
+                ->delete();
             $questions = Question::all()->random(30)->shuffle();
             session([
                 'questions' => $questions,
@@ -46,26 +49,41 @@ class TestController extends Controller
 
             return [$questions[$qn - 1], $qn, $answers];
         }
-        else {
-            $request->session()->forget(['questions', 'qNumber']);
-            return 'test';
-        }
+//        else {
+//            $request->session()->forget(['questions', 'qNumber']);
+//            return 'test';
+//        }
     }
 
-    public function results(){
+    public function results(Request $request){
         $submitted_answers = DB::table('user_quiz_sessions')
                                     ->where('user_id', '=', Auth::user()->id)
                                     ->get();
+
+        $correction = $request->session()->get('questions');
+        foreach ($correction as $co){
+            $co->answers = DB::table('reponses')
+                ->where('question_id', '=', $co->id)
+                ->get();
+            $co->chosen = DB::table('user_quiz_sessions')
+                ->where('user_id', '=', Auth::user()->id)
+                ->where('question_id', '=', $co->id)
+                ->select('reponse_id')
+                ->get();
+        }
+        //ddd($correction);
         $score = 0;
         foreach ($submitted_answers as $submitted_answer){
             $rep = Reponse::find($submitted_answer->reponse_id);
             if($rep->correct)
                 $score++;
         }
-        DB::table('user_quiz_sessions')
-                ->where('user_id', '=', Auth::user()->id)
-                ->delete();
+//todo uncomment
+//        DB::table('user_quiz_sessions')
+//                ->where('user_id', '=', Auth::user()->id)
+//                ->delete();
 
-        return view('Quiz.results')->with('score', $score);
+        return view('Quiz.results')->with('score', $score)
+            ->with('correction', $correction);
     }
 }

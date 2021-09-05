@@ -55,8 +55,6 @@ class DatabaseSeeder extends Seeder
             'tel' => 65784595
         ]);
 
-//        TODO populate with 30 questions and answers
-
         $this->call(ReponsesTableSeeder::class);
         $this->call(QuestionsTableSeeder::class);
     }

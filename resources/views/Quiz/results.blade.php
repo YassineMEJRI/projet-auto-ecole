@@ -20,5 +20,19 @@
                 Félicitation! Vous avez réussi votre examen.
             </div>
         @endif
+        @foreach($correction as $cor)
+        <p>{{$cor->body}}</p>
+        <ul>
+            @foreach($cor->answers as $ans)
+                <li class={{ $ans->correct?"bg-success":"" }}>{{ $ans->body }}</li>
+                @foreach($cor->chosen as $cho)
+                    @if($cho->reponse_id == $ans->id)
+                        ^
+                    @endif
+                @endforeach
+            @endforeach
+
+        </ul>
+        @endforeach
     </div>
 @endsection

@@ -55,6 +55,11 @@ class User extends Authenticatable
                 if($this->droit != 0 )
                     return true;
             }
+
+            case "userpaid": {
+                if($this->paid || $this->droit !=0 )
+                    return true;
+            }
         }
         return false;
     }

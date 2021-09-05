@@ -38,7 +38,7 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/test', [TestController::class,'index'])->middleware('auth');
+Route::get('/test', [TestController::class,'index'])->middleware('auth','hasRole:userpaid');
 
 Route::get('/nextquestion', [TestController::class,'nextQuestion']);
 

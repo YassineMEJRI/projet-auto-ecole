@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('droit')->default(0);
             $table->integer('tel');
+            $table->boolean('paid')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

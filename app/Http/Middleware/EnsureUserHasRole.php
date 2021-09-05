@@ -17,7 +17,7 @@ class EnsureUserHasRole
     public function handle(Request $request, Closure $next, $role)
     {
         if(! $request->user()->hasRole($role)){
-            return redirect('/home')->with('error', "Action not permitted!");
+            return redirect('/')->with('error', "Action not permitted!");
         }
 
         return $next($request);
