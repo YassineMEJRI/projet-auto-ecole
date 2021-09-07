@@ -1,8 +1,9 @@
 @extends('layouts.app')
 @section('content')
+    <br>
     <div class="container">
-        <table class="table table-striped text-center">
-            <tr>
+        <table class="table table-striped text-center color_perso1">
+            <tr class="bg-info text-white">
                 <th>Id</th>
                 <th>Type</th>
                 <th>Matricule</th>
@@ -12,7 +13,7 @@
                 <th class="float-right">Actions</th>
             </tr>
             @foreach($vehicules as $vehicule)
-                <tr class="{{ $vehicule->horsService?"table-danger":"" }}">
+                <tr class="{{ $vehicule->horsService?"table-danger":"" }} color_perso2 align-middle">
                     <td>{{ $vehicule->id }}</td>
                     <td>{{ $vehicule->type }}</td>
                     <td>{{ $vehicule->matricule }}</td>

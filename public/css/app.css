@@ -70,7 +70,69 @@
     scroll-behavior: smooth;
   }
 }
+/*---------------------------------- mourad zedou -------------------------*/
+.vec_background{background: linear-gradient(90deg, rgb(248, 250, 252) 0%, rgb(38, 152, 173) 53%, rgb(248, 250, 252) 100%);}
+.color_perso{border:2px; border-color: #1f5684;background-color: rgba(163, 182, 183, 0.27); border: #2698ADFF; box-shadow: 2px -0px 20px 0px rgba(0,0,0,0.3); border-radius: 30px 30px 30px;}
+.color_perso2:hover{background-color: rgba(166, 252, 255, 0.3);}
+.color_perso1{box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.4);}
+.color_perso:hover{
+    border:2px;
+    border-color: #1f5684;}
+.vec_background1{box-shadow: #1e2125;}
+.test {
+    width: 100px;
+}
+.box{ height: 300px;
+      width: 33%;
+      box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.4);
+      border-radius: 30px;
+      border-color: #1e2125;
+}
+.button1 {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #83b7cc;
+    background-image: url("C:\Users\moura\Desktop\projet-auto-ecole\public\storage\images\background.jpg");
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 30%;
+    height: 150px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.4);
+}
 
+.button1 span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button1 span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    vertical-align: middle !important;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button1:hover span {
+    padding-right: 25px;
+
+}
+
+.button1:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+/*-------------------------------------------------------------------------*/
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
@@ -7923,7 +7985,9 @@ textarea.form-control-lg {
 .rounded-3 {
   border-radius: 0.3rem !important;
 }
-
+.rounded-4 {
+    border-radius: 5% !important;
+}
 .rounded-circle {
   border-radius: 50% !important;
 }

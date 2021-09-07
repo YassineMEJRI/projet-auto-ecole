@@ -1,25 +1,18 @@
 @extends('layouts.app')
 @section('content')
-    <h1>Welcome
+    <div><h1 class="align-middle text-center">Welcome
         @if(Auth::check())
             {{ Auth::user()->name }}
         @endif
         !
-    </h1>
-    <a href="/vehicules/create">Ajouter un nouveau vehicule.</a>
-    <br>
-    <a href="/vehicules">Afficher la liste des vehicules.</a>
-    <br>
-    <a href="/test">Passer un Quiz</a>
-    <br>
-    <a href="/quiz/ajouter">Ajouter une question de quiz</a>
-    <br>
-    <a href="/users">Liste des utilisateurs</a>
-    <br>
-    <a href="/rdv/ajouter">Ajouter un rendez-vous</a>
-    <br>
-    <a href="/rdv/list">Liste des rendez-vous</a>
-    <br>
-    <a href="/about">Page d'acceuil</a>
+    </h1><br></div>
+    <div class="align-middle align-content-center">
+    <button type="button" class="text-center button1 align-middle float-start" onclick="window.location.href='/vehicules/create';"><span>Ajouter un nouveau vehicule</span></button>
+    <button type="button" class="text-center button1 align-middle float-start" onclick="window.location.href='/test';"><span>Passer un Quiz.</span></button>
+        <button type="button" class="text-center button1 align-middle float-start" onclick="window.location.href='/users';"><span>Liste des utilisateurs</span></button>
+        <button type="button" class="text-center button1 align-middle float-start" onclick="window.location.href='/vehicules';"><span>Afficher la liste des vehicules.</span></button>
+        <button type="button" class="text-center button1 align-middle float-start" onclick="window.location.href='/quiz/ajouter';"><span>Ajouter une question de quiz</span></button>
+    <button type="button" class="text-center button1 align-middle float-start" onclick="window.location.href='/rdv/ajouter';"><span>Ajouter un rendez-vous</span></button>
 
+    </div>
 @endsection
