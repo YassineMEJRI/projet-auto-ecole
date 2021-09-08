@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Visual</title>
+    <title>auto école</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <!-- Stlylesheet -->
@@ -46,8 +46,54 @@
         <div class="cube cube15"></div>
     </div>
 </div>
+<header>
+        <nav class="navbar navbar-default navbar-alt navbar-small">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand to-top" rel="home" href="#">
+                    </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="main-nav">
+                    <ul class="nav navbar-nav  navbar-right">
+                        <li>
+                            <a class="to-top">
+                                Home
+                            </a>
+                        </li>
+                        <li class="to-section">
+                            <a href="#about">
+                                About Us
+                            </a>
+                        </li>
+                        <li class="to-section">
+                            <a href="#team">
+                                Team
+                            </a>
+                        </li>
+                        <li class="to-section">
+                            <a href="#contact">
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </nav>
+</header>
 <section id="home-revolution-slider">
     <div class="hero">
+
         <div class="tp-banner-container">
             <div class="tp-banner">
                 <video width=100% height=100% autoplay muted loop >
@@ -59,7 +105,7 @@
 <!-- End Home Revolution Slider Parallax Section -->
 <div class="site-wrapper content">
     <!-- Start Features Section -->
-    <section id="features">
+    <section id="about">
         <div class="container">
             <div class="col-md-12 text-center wow fadeInUp">
                 <h3 class="section-title">Auto Ecole ENSI</h3>
