@@ -1,7 +1,9 @@
 @extends('layouts.app')
 @section('content')
+
+    <div class ="backdropground py-4">
     <div class="vec_background mar"><h1 class="text-white text-center ">Ajouter un vehicule</h1></div>
-    <div class="container border border-3 border-secondary rounded-4 w-50 color_perso">
+    <div class="container border border-3 border-secondary rounded-4 color_perso">
         <form method="POST" action="/vehicules" enctype="multipart/form-data">
             @csrf
             <div class="container w-50 my-5">
@@ -92,5 +94,6 @@
                     </svg> Enregistrer</button></div><br>
             </div>
         </form>
+    </div>
     </div>
 @endsection

@@ -18,6 +18,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="sidebar/css/style.css">
 
 </head>
 <body>
@@ -58,6 +62,49 @@
         </div>
     </nav>
 
+    <div class="wrapper d-flex align-items-stretch">
+        <nav id="sidebar" class="active">
+            <div class="custom-menu">
+                <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Toggle Menu</span>
+                </button>
+            </div>
+            <div class="p-4">
+                <h1><a href="index.html" class="logo">User Interface</a></h1>
+                <ul class="list-unstyled components mb-3 ">
+                    <li class="active">
+                        <a href="#"><span class="fa fa-home mr-3"></span> Home</a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="fa fa-car mr-3"></span> Liste des véhicules</a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="fa fa-question mr-3"></span> Quiz</a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="fa fa-sticky-note mr-3"></span>Liste des rendez-vous</a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="fa fa-paper-plane mr-3"></span> Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="text-center text-white border-top">
+                <img src="sidebar/images/mourad.png"
+                     class="rounded-circle mb-3 mt-3 border-perso border-5"
+                     style="width: 150px; height: 150px;"
+                     alt=""
+                /><h1 class="text-white"> Mourad Sellami</h1></div>
+            <div class="text-center mb-4" >
+                <a class=" text-white buttonstyle" href="#/about" > Logout </a>
+            </div>
+        </nav>
+    </div>
+    <script src="sidebar/js/jquery.min.js"></script>
+    <script src="sidebar/js/popper.js"></script>
+    <script src="sidebar/js/bootstrap.min.js"></script>
+    <script src="sidebar/js/main.js"></script>
     <main class="py-4 container min-vh-100">
         @include('messages')
         @yield('content')

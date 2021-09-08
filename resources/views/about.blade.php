@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="{{ asset('css-front-page/font-awesome/css/font-awesome.css') }}" type="text/css" />
     <link rel="stylesheet" href="{{ asset('css-front-page/style.css') }}" type="text/css" />
     <link rel="stylesheet" href="{{ asset('css-front-page/no-ui-slider/jquery.nouislider.css') }}" type="text/css" />
-
     <!-- Skin Color -->
     <link rel="stylesheet" href="{{ asset('css-front-page/colors/green.css') }}" id="color-skins"/>
 </head>
@@ -47,7 +46,7 @@
     </div>
 </div>
 <header>
-        <nav class="navbar navbar-default navbar-alt navbar-small">
+        <nav class="navbar navbar-default navbar-small">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -61,8 +60,10 @@
                     </a>
                 </div>
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
+                <!--<div class="float-end" ><img src="../storage/images/logo.png"  width="10%" height="10%"></div>
+                Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="main-nav">
+                    <div class="nav navbar-nav navbar-left margtop" ><img src="../storage/images/logo.png" width="50%" height="50%"></div>
                     <ul class="nav navbar-nav  navbar-right">
                         <li>
                             <a class="to-top">
@@ -75,6 +76,11 @@
                             </a>
                         </li>
                         <li class="to-section">
+                            <a href="#fun-facts">
+                                Statistic
+                            </a>
+                        </li>
+                        <li class="to-section">
                             <a href="#team">
                                 Team
                             </a>
@@ -84,7 +90,17 @@
                                 Contact
                             </a>
                         </li>
+                        <li class="to-section">
+                            <a href="#">
+                                |
+                            </a>
+                        </li>
+                        <li class="to-section ">
+                            <a role="button" class=" to-section" href="/login">login</a></li>
+                        <li class="to-section ">
+                            <a role="button" class=" to-section" href="/register">register</a></li>
                     </ul>
+
                 </div>
                 <!-- /.navbar-collapse -->
             </div>

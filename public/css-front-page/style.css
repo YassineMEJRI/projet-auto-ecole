@@ -781,6 +781,12 @@ nav {
         margin-top:0px;
     }
 }
+.border-left{
+    border-left: black;
+    border-left-width: 2px;
+}
+.logoadd{background-image: url("/../../public/storage/images/logo.png");}
+
 .navbar-default .navbar-right {
 	font-family: 'Exo', sans-serif;
 	font-size: 12px;
@@ -3151,6 +3157,9 @@ ul.caret-list li:before {
 .panel-group .panel-heading + .panel-collapse .panel-body {
     border: none;
     background: none;
+}
+.margtop{
+    margin-top: 10px;
 }
 /*--tabs--*/
 .nav-tabs>li>a {
