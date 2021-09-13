@@ -1,6 +1,14 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
+    <!-- Stlylesheet -->
+    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('css-front-page/font-awesome/css/font-awesome.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('css-front-page/style.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('css-front-page/no-ui-slider/jquery.nouislider.css') }}" type="text/css" />
+    <!-- Skin Color -->
+    <link rel="stylesheet" href="{{ asset('css-front-page/colors/green.css') }}" id="color-skins"/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -16,22 +24,140 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Styles  <link  rel="stylesheet" href="{{ asset('css/app.css') }}" type="text/css"/> -->
 
+    <script type="text/javascript" src="{{asset('js-front-page/plugins/jquery.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.min.js' ) }}"></script>
+    <script type="text/javascript" src="{{ asset('js-front-page/plugins/moderniz.min.js' ) }}"></script>
+    <script type="text/javascript" src="{{ asset('js-front-page/plugins/smoothscroll.min.js' ) }}"></script>
+    <script type="text/javascript" src="{{ asset('js-front-page/no-ui-slider/jquery.nouislider.all.min.js' ) }}"></script>
+    <script type="text/javascript" src="{{ asset('js-front-page/plugins/revslider.min.js' ) }}"></script>
+    <script type="text/javascript" src="{{ asset('js-front-page/plugins/waypoints.min.js' ) }}"></script>
+    <script type="text/javascript" src="{{ asset('js-front-page/plugins/parallax.min.js' ) }}"></script>
+    <script type="text/javascript" src="{{ asset('js-front-page/plugins/easign1.3.min.js' ) }}"></script>
+    <script type="text/javascript" src="{{ asset('js-front-page/plugins/cubeportfolio.min.js' ) }}"></script>
+    <script type="text/javascript" src="{{ asset('js-front-page/plugins/owlcarousel.min.js' ) }}"></script>
+    <script type="text/javascript" src="{{ asset('js-front-page/plugins/tweetie.min.js' ) }}"></script>
+    <script type="text/javascript" src="{{ asset('http://maps.googleapis.com/maps/api/js' ) }}"></script>
+    <script type="text/javascript" src="{{ asset('js-front-page/plugins/gmap3.min.js' ) }}"></script>
+    <script type="text/javascript" src="{{ asset('js-front-page/plugins/wow.min.js' ) }}"></script>
+    <script type="text/javascript" src="{{ asset('js-front-page/plugins/counterup.min.js' ) }}"></script>
 </head>
+<header>
+    @auth
+        <img src="https://avatar.oxro.io/avatar.svg?name=Mourad&background=337ab7&length=1" class="rounded-icon">
+    @endauth
+    <nav class="navbar navbar-default navbar-alt navbar-small">
+
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand to-top" rel="home" href="#">
+                </a>
+            </div>
+            @guest
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="main-nav">
+                <ul class="nav navbar-nav  navbar-right">
+                    <li>
+                        <a class="to-top" onclick="window.location.href='../about#home';">
+                            Home
+                        </a>
+                    </li>
+                    <li class="to-section ">
+                        <a href="#about" onclick="window.location.href='../about#about';">
+                            About Us
+                        </a>
+                    </li>
+                    <li class="to-section" >
+                        <a href="#team" onclick="window.location.href='../about#team';">
+                            Team
+                        </a>
+                    </li>
+                    <li class="to-section">
+                        <a href="#contact"onclick="window.location.href='../about#contact';">
+                            Contact
+                        </a>
+                    </li>
+                    <li class="to-section">
+                        <a>
+                            |
+                        </a>
+                    </li>
+
+                    <li class="to-section">
+
+                        <a role="button" href="{{ route('login') }}">Login</a>
+                    </li>
+                    <li class="to-section">
+                        <a role="button" href="{{ route('register') }}">Register</a>
+                    </li>
+                    @endguest
+
+                    @auth
+                        <div class="collapse navbar-collapse" id="main-nav">
+                            <ul class="nav navbar-nav  navbar-right">
+                                <li>
+                                    <a class="to-top" href="/vehicules/create">Ajouter un nouveau vehicule
+                                    </a>
+                                </li>
+                                <li class="to-section ">
+                                    <a class="to-top" href="/quiz/ajouter">Ajouter un quiz
+                                    </a>
+                                </li>
+                                <li class="to-section">
+                                    <a class="to-top" href="/users">liste des utilisateurs
+                                    </a>
+                                </li>
+                                <li class="disable to-section">
+                                    <a>
+                                        |
+                                    </a>
+                                </li>
+                                <li>
+                                    <img src="https://avatars.dicebear.com/api/initials/{{ Auth::user()->firstName }}_{{ Auth::user()->lastName }}.svg?background=%230000ff" class="disable rounded-icon">
+                                </li>
+                                <li class="to-section mt-3">
+                        <div class="dropdown text-center ">
+                            <a class="to-section" href="#" role="button" id="dropdownMenuLink"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ Auth::user()->firstName }} {{ Auth::user()->lastName }}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink ml-5">
+                                <li><a class="dropdown-item text-center" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">Logout</a></li>
+                            </ul>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                        </li>
+                            </ul>
+                            @endauth
+
+            </div>
+        </div>
+    </nav>
+</header>
+@guest
+<body class="back">
+@endguest
+@auth
 <body>
+@endauth
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{ config('app.name', 'Laravel') }}
             </a>
-{{--            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"--}}
-{{--                    aria-controls="navbarSupportedContent" aria-expanded="false"--}}
-{{--                    aria-label="{{ __('Toggle navigation') }}">--}}
-{{--                <span class="navbar-toggler-icon"></span>--}}
-{{--            </button>--}}
             @guest
                 <div class="d-grid gap-2 d-md-block">
                     <a role="button" href="{{ route('login') }}" class="btn btn-light">Login</a>
@@ -44,11 +170,10 @@
                        data-bs-toggle="dropdown" aria-expanded="false">
                         {{ Auth::user()->firstName }} {{ Auth::user()->lastName }}
                     </a>
-
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <li><a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">Logout</a></li>
+                                document.getElementById('logout-form').submit();">Logout</a></li>
                     </ul>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
@@ -64,126 +189,5 @@
     </main>
 </div>
 </body>
-<!-- Footer -->
-<footer class="text-center text-lg-start bg-light text-muted">
-    <!-- Section: Social media -->
-    <section
-        class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
-    >
-        <!-- Left -->
 
-        <!-- Right -->
-        <div>
-            <a href="" class="me-4 text-reset">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="" class="me-4 text-reset">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="" class="me-4 text-reset">
-                <i class="fab fa-google"></i>
-            </a>
-            <a href="" class="me-4 text-reset">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="" class="me-4 text-reset">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="" class="me-4 text-reset">
-                <i class="fab fa-github"></i>
-            </a>
-        </div>
-        <!-- Right -->
-    </section>
-    <!-- Section: Social media -->
-
-    <!-- Section: Links  -->
-    <section class="">
-        <div class="container text-center text-md-start mt-5">
-            <!-- Grid row -->
-            <div class="row mt-3">
-                <!-- Grid column -->
-                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                    <!-- Content -->
-                    <h6 class="text-uppercase fw-bold mb-4">
-                        <i class="fas fa-gem me-3"></i>Company name
-                    </h6>
-                    <p>
-                        Here you can use rows and columns to organize your footer content. Lorem ipsum
-                        dolor sit amet, consectetur adipisicing elit.
-                    </p>
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                    <!-- Links -->
-                    <h6 class="text-uppercase fw-bold mb-4">
-                        Products
-                    </h6>
-                    <p>
-                        <a href="#!" class="text-reset">Angular</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset">React</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset">Vue</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset">Laravel</a>
-                    </p>
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                    <!-- Links -->
-                    <h6 class="text-uppercase fw-bold mb-4">
-                        Useful links
-                    </h6>
-                    <p>
-                        <a href="#!" class="text-reset">Pricing</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset">Settings</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset">Orders</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset">Help</a>
-                    </p>
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                    <!-- Links -->
-                    <h6 class="text-uppercase fw-bold mb-4">
-                        Contact
-                    </h6>
-                    <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
-                    <p>
-                        <i class="fas fa-envelope me-3"></i>
-                        info@example.com
-                    </p>
-                    <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-                    <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
-                </div>
-                <!-- Grid column -->
-            </div>
-            <!-- Grid row -->
-        </div>
-    </section>
-    <!-- Section: Links  -->
-
-    <!-- Copyright -->
-    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-        © 2021 Copyright:
-        <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-    </div>
-    <!-- Copyright -->
-</footer>
-<!-- Footer -->
 </html>

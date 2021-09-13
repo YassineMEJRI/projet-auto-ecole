@@ -22,6 +22,7 @@
 
     <!-- Skin Color -->
     <link rel="stylesheet" href="{{ asset('css-front-page/colors/green.css') }}" id="color-skins"/>
+    <link rel="stylesheet" href="{{ asset('css-front-page/style.css') }}" id="color-skins"/>
 </head>
 <body>
 
@@ -47,7 +48,7 @@
     </div>
 </div>
 <header>
-        <nav class="navbar navbar-default navbar-alt navbar-small">
+        <nav class="navbar navbar-default navbar-small">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -83,6 +84,17 @@
                             <a href="#contact">
                                 Contact
                             </a>
+                        </li>
+                        <li class="to-section">
+                            <a>
+                                |
+                            </a>
+                        </li>
+                        <li class="to-section">
+                            <a role="button" href="{{ route('login') }}">Login</a>
+                        </li>
+                        <li class="to-section">
+                            <a role="button" href="{{ route('register') }}">Register</a>
                         </li>
                     </ul>
                 </div>
@@ -190,7 +202,7 @@
                 <h3 class="section-title">Notre team</h3>
                 <p class="subheading">Équipe interdisciplinaire avec de grandes<span class="highlight"> idées </span>et des <span class="highlight">défis</span> .</p>
             </div>
-            <div class="row test">
+            <div class="row test-back">
                 <div class="col-md-3 col-sm-3 team-member">
                     <div class="effect effects wow fadeInUp">
                         <div class="img">

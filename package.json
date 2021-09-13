@@ -20,5 +20,9 @@
         "resolve-url-loader": "^4.0.0",
         "sass": "^1.32.11",
         "sass-loader": "^11.0.1"
+    },
+    "dependencies": {
+        "@dicebear/avatars": "^4.9.1",
+        "@dicebear/avatars-male-sprites": "^4.9.1"
     }
 }
