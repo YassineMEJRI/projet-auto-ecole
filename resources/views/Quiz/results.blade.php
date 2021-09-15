@@ -21,18 +21,28 @@
             </div>
         @endif
         @foreach($correction as $cor)
-        <p>{{$cor->body}}</p>
-        <ul>
-            @foreach($cor->answers as $ans)
-                <li class={{ $ans->correct?"bg-success":"" }}>{{ $ans->body }}</li>
-                @foreach($cor->chosen as $cho)
-                    @if($cho->reponse_id == $ans->id)
-                        ^
-                    @endif
-                @endforeach
-            @endforeach
+          <div class="container">
+              <div class="row mt-5 py-2 border border-2 border-secondary rounded-3">
+                  <div class="col">
+                      <p>{{$cor->body}}</p>
+                      <ul>
+                          @foreach($cor->answers as $ans)
+                              <li class="{{ $ans->correct?"bg-success":"" }} {{ $cor->chosen->reponse_id==$ans->id?"border border-3 border-warning":"" }}">{{ $ans->body }}</li>
 
-        </ul>
+                              {{--                @foreach($cor->chosen as $cho)--}}
+                              {{--                    @if($cho->reponse_id == $ans->id)--}}
+                              {{--                        ^--}}
+                              {{--                    @endif--}}
+                              {{--                @endforeach--}}
+                          @endforeach
+
+                      </ul>
+                  </div>
+                  <div class="col float-end d-flex justify-content-center">
+                      <img src="/storage/images/{{ $cor->image }}" height="130">
+                  </div>
+              </div>
+          </div>
         @endforeach
     </div>
 @endsection
