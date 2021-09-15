@@ -69,7 +69,7 @@ class TestController extends Controller
                 ->where('user_id', '=', Auth::user()->id)
                 ->where('question_id', '=', $co->id)
                 ->select('reponse_id')
-                ->get();
+                ->first();
         }
         //ddd($correction);
         $score = 0;
@@ -82,7 +82,6 @@ class TestController extends Controller
 //        DB::table('user_quiz_sessions')
 //                ->where('user_id', '=', Auth::user()->id)
 //                ->delete();
-
         return view('Quiz.results')->with('score', $score)
             ->with('correction', $correction);
     }

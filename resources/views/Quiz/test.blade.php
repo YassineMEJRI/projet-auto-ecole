@@ -32,6 +32,9 @@
                         <div class="clearfix position-absolute bottom-0 end-0 mb-3">
                             <a role="button" class="btn btn-lg btn-success float-end" id="next">Next</a>
                         </div>
+                        <div class="clearfix position-absolute bottom-0 end-0 mb-3">
+                            <button id="finish" class="btn btn-lg btn-success float-end" style="display: none" onclick="finishQuiz()">Afficher le resultat</button>
+                        </div>
                     </div>
                 </div>
                 <div class="col">
@@ -88,10 +91,10 @@
                         $('#btnradio2').attr("value", response[2][1].id);
 
                         $('#progress').width(response[1] * 100 / 30 + '%');
-
                         if (response[1] == 30) {
-                            $("#next").attr("href", "quiz/results");
-                            $("#next").html("Finish");
+                            $("#next").hide();
+                            $("#finish").show();
+                            //alert("test");
                         }
 
                     }
@@ -108,5 +111,19 @@
                 $("#test_container").show();
             });
         });
+        function  finishQuiz(){
+            $.ajax(
+                {
+                    url: '/nextquestion',
+                    dataType: 'json',
+                    data: {
+                        answer: $('input[name="btnradio"]:checked').val(),
+                        questionId: $("#questionId").val()
+                    },
+                    success: function(){}
+                }
+            );
+            window.location.href = "quiz/results";
+        }
     </script>
 @endsection
