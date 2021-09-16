@@ -55,4 +55,6 @@ Route::post('/rdv/reserver/{id}', [RdvController::class, 'reserver']);
 Route::get('/paiement',[PaymentController::class, 'index']);
 Route::post('/paiement',[PaymentController::class, 'store']);
 
+Route::get('/offers', function(){ return view('offers'); });
+
 
