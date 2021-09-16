@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\RdvController;
 use App\Http\Controllers\TestController;
@@ -46,8 +47,12 @@ Route::get('/quiz/ajouter', [QuestionController::class,'create'])->middleware('a
 Route::post('/quiz/ajouter', [QuestionController::class,'store']);
 Route::get('/quiz/results', [TestController::class,'results']);
 
-Route::get('/rdv/ajouter', [RdvController::class,'ajouter']);
-Route::post('/rdv/ajouter', [RdvController::class,'store']);
+Route::get('/rdv/ajouter', [RdvController::class,'ajouter'])->middleware('auth', 'hasRole:moniteur');
+Route::post('/rdv/ajouter', [RdvController::class,'store'])->middleware('auth', 'hasRole:moniteur');
 Route::get('/rdv/list', [RdvController::class,'index'])->middleware('auth','hasRole:moniteur');
 Route::post('/rdv/reserver/{id}', [RdvController::class, 'reserver']);
+
+Route::get('/paiement',[PaymentController::class, 'index']);
+Route::post('/paiement',[PaymentController::class, 'store']);
+
 

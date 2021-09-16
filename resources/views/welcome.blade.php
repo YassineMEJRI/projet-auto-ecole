@@ -7,12 +7,13 @@
         !
     </h1><br></div>
     <div class="align-middle align-content-center">
-    <button type="button" class="text-center button1 align-middle float-start" onclick="window.location.href='/vehicules/create';"><span>Ajouter un nouveau vehicule</span></button>
-    <button type="button" class="text-center button1 align-middle float-start" onclick="window.location.href='/test';"><span>Passer un Quiz.</span></button>
-        <button type="button" class="text-center button1 align-middle float-start" onclick="window.location.href='/users';"><span>Liste des utilisateurs</span></button>
-        <button type="button" class="text-center button1 align-middle float-start" onclick="window.location.href='/vehicules';"><span>Afficher la liste des vehicules.</span></button>
-        <button type="button" class="text-center button1 align-middle float-start" onclick="window.location.href='/quiz/ajouter';"><span>Ajouter une question de quiz</span></button>
-    <button type="button" class="text-center button1 align-middle float-start" onclick="window.location.href='/rdv/ajouter';"><span>Ajouter un rendez-vous</span></button>
+    <a type="button" class="text-center button1 align-middle float-start" href='/vehicules/create'><span>Ajouter un nouveau vehicule</span></a>
+    <a type="button" class="text-center button1 align-middle float-start" href='/test'><span>Passer un Quiz.</span></a>
+    <a type="button" class="text-center button1 align-middle float-start" href='/users'><span>Liste des utilisateurs</span></a>
+    <a type="button" class="text-center button1 align-middle float-start" href='/vehicules'><span>Afficher la liste des vehicules.</span></a>
+    <a type="button" class="text-center button1 align-middle float-start" href='/quiz/ajouter'><span>Ajouter une question de quiz</span></a>
+    <a type="button" class="text-center button1 align-middle float-start" href='/rdv/ajouter'><span>Ajouter un rendez-vous</span></a>
+    <a type="button" class="text-center button1 align-middle float-start" href='/rdv/list'><span>Reserver un rendez-vous (code/conduite)</span></a>
 
     </div>
 @endsection
