@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Vehicule;
 use Illuminate\Console\Command;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Log;
@@ -40,8 +41,11 @@ class CheckupReminder extends Command
      */
     public function handle()
     {
+        $vehicule = Vehicule::where('visite' ,'=' , Carbon::tomorrow()->toDateTimeString())->get();
+        log::info($vehicule);
 
-    log::info('time is ' . Carbon::now()) ;
+
+
     }
 
 }
