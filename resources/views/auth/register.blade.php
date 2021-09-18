@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="tel" class="col-md-4 col-form-label text-md-right">Numèro de tétléphone </label>
+                            <label for="tel" class="col-md-4 col-form-label text-md-right">Numèro de téléphone </label>
 
                             <div class="col-md-6">
                                 <input id="tel" type="tel" class="form-control @error('tel') is-invalid @enderror" name="tel" value="{{ old('tel') }}" required  autofocus>

@@ -57,4 +57,8 @@ Route::post('/paiement',[PaymentController::class, 'store']);
 
 Route::get('/offers', function(){ return view('offers'); });
 
+Route::get('/moniteur/ajouter', [UsersController::class, 'ajouter_moniteur'])->middleware('auth', 'hasRole:admin');
+Route::post('/moniteur/ajouter', [UsersController::class, 'ajouter_moniteur'])->middleware('auth', 'hasRole:admin');
+
+
 

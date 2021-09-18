@@ -22,4 +22,14 @@ class UsersController extends Controller
                                 'moniteurs' => $moniteurs,
                                 'admins' => $admins]);
     }
+
+    public function ajouter_moniteur(){
+        return view('ajoutermoniteur');
+    }
+
+    public function store_moniteur(Request $request){
+        $this->validate($request, [
+            'fname' => 'required|'
+        ]);
+    }
 }
