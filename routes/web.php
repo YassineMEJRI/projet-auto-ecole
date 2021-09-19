@@ -53,10 +53,9 @@ Route::post('/rdv/ajouter', [RdvController::class,'store'])->middleware('auth', 
 Route::get('/rdv/list', [RdvController::class,'index'])->middleware('auth','hasRole:moniteur');
 Route::post('/rdv/reserver/{id}', [RdvController::class, 'reserver']);
 
-Route::get('/paiement',[PaymentController::class, 'index']);
-Route::post('/paiement',[PaymentController::class, 'store']);
-
-Route::get('/offers', function(){ return view('offers'); });
+Route::get('/offers',[PaymentController::class, 'index'])->middleware('auth');
+Route::get('/paiement',[PaymentController::class, 'paymentmethod'])->middleware('auth');
+Route::post('/paiment',[PaymentController::class, 'store'])->middleware('auth');
 
 Route::get('/moniteur/ajouter', [UsersController::class, 'ajouter_moniteur'])->middleware('auth', 'hasRole:admin');
 Route::post('/moniteur/ajouter', [UsersController::class, 'store_moniteur'])->middleware('auth', 'hasRole:admin');
