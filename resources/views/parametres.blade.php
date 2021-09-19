@@ -21,7 +21,7 @@
                 </ul>
             </div>
 
-            <div class="col">
+            <div class="col ms-5">
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="general-tab">
                         <form method="POST" action="/parametres/updatedata">
