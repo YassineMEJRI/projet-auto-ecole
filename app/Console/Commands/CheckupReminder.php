@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Console\Commands;
-
+use App\Models\Notification ;
 use App\Models\Vehicule;
 use Illuminate\Console\Command;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Log;
+
+
 
 
 class CheckupReminder extends Command
@@ -41,11 +43,20 @@ class CheckupReminder extends Command
      */
     public function handle()
     {
-        $vehicule = Vehicule::where('visite' ,'=' , Carbon::tomorrow()->toDateTimeString())->get();
-        log::info($vehicule);
+        $vehicules = Vehicule::where('visite', '=', Carbon::tomorrow()->toDateTimeString())->get();
 
 
+        foreach ($vehicules as $vehicule) {
+            $notification = new Notification();
+            $notification->title = "Date de visite de vehicule ";
+            $notification->corps = "la date visite de la vehicule de matricule " . $vehicule->matricule;
+            $notification->user_id = 1 ;
+            $notification->type="rappel" ;
+            $notification->save();
 
+        }
     }
+
+
 
 }
