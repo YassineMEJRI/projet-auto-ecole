@@ -34,7 +34,7 @@ Route::get('/about', function (){
 
 Route::get('/users', [UsersController::class, 'index'])->middleware('auth','hasRole:admin');
 
-Route::resource('vehicules', 'VehiculesController');
+Route::resource('vehicules', 'App\Http\Controllers\VehiculesController');
 
 Auth::routes();
 
@@ -60,6 +60,10 @@ Route::get('/offers', function(){ return view('offers'); });
 
 Route::get('/moniteur/ajouter', [UsersController::class, 'ajouter_moniteur'])->middleware('auth', 'hasRole:admin');
 Route::post('/moniteur/ajouter', [UsersController::class, 'store_moniteur'])->middleware('auth', 'hasRole:admin');
+
+Route::get('/parametres', [UsersController::class, 'parametres'])->middleware('auth');
+Route::post('/parametres/updatepassword', [UsersController::class, 'update_password'])->middleware('auth');
+Route::put('/parametres/updatedata', [UsersController::class, 'update_data'])->middleware('auth');
 
 
 
