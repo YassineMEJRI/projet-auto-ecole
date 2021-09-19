@@ -8,7 +8,7 @@
                     <div class="card-header">Ajouter un moniteur</div>
 
                     <div class="card-body">
-                        <form method="POST" action="/ajouter/moniteur">
+                        <form method="POST" action="/moniteur/ajouter">
                             @csrf
                             <div class="form-group row my-2">
                                 <label for="fname" class="col-md-4 col-form-label text-md-right">First Name</label>

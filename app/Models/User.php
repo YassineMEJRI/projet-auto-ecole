@@ -44,23 +44,26 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function hasRole($role): bool
+    public function hasRole($role)
     {
         switch ($role){
             case "admin": {
                 if($this->droit == 2)
                     return true;
             }
+            break;
             case "moniteur": {
                 if($this->droit != 0 )
                     return true;
             }
-
+            break;
             case "userpaid": {
                 if($this->paid || $this->droit !=0 )
                     return true;
             }
+            break;
+            default:
+                return  false;
         }
-        return false;
     }
 }

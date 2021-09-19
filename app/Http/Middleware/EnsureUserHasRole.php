@@ -2,8 +2,10 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\User;
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EnsureUserHasRole
 {
@@ -16,7 +18,8 @@ class EnsureUserHasRole
      */
     public function handle(Request $request, Closure $next, $role)
     {
-        if(! $request->user()->hasRole($role)){
+        $user = Auth::user();
+        if(! $user->hasRole($role)){
             return redirect('/')->with('error', "Action not permitted!");
         }
 

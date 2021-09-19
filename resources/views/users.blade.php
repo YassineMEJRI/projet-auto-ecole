@@ -14,30 +14,75 @@
     </ul>
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-users" role="tabpanel" aria-labelledby="pills-users-tab">
-            <ul class="list-group">
+            <table class="table table-striped text-center color_perso1">
+                <tr class="bg-info text-white">
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>CIN</th>
+                    <th>e-mail</th>
+                    <th>Téléphone</th>
+                </tr>
                 @foreach($users as $user)
 
-                    <li class="list-group-item">{{ $user->firstName }}  {{ $user->id }}</li>
+                    <tr>
+                        <td>{{ $user->firstName }}</td>
+                        <td>{{ $user->lastName }}</td>
+                        <td>{{ $user->cin }}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>{{ $user->tel }}</td>
+
+                    </tr>
 
                 @endforeach
+            </table>
             </ul>
         </div>
         <div class="tab-pane fade" id="pills-moniteurs" role="tabpanel" aria-labelledby="pills-moniteurs-tab">
-            <ul class="list-group">
+            <table class="table table-striped text-center color_perso1">
+                <tr class="bg-info text-white">
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>CIN</th>
+                    <th>e-mail</th>
+                    <th>Téléphone</th>
+                </tr>
                 @foreach($moniteurs as $moniteur)
 
-                    <li class="list-group-item">{{ $moniteur->firstName }}  {{ $moniteur->id }}</li>
+                    <tr>
+                        <td>{{ $moniteur->firstName }}</td>
+                        <td>{{ $moniteur->lastName }}</td>
+                        <td>{{ $moniteur->cin }}</td>
+                        <td>{{ $moniteur->email }}</td>
+                        <td>{{ $moniteur->tel }}</td>
+
+                    </tr>
 
                 @endforeach
+            </table>
             </ul>
         </div>
         <div class="tab-pane fade" id="pills-admins" role="tabpanel" aria-labelledby="pills-admins-tab">
-            <ul class="list-group">
+            <table class="table table-striped text-center color_perso1">
+                <tr class="bg-info text-white">
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>CIN</th>
+                    <th>e-mail</th>
+                    <th>Téléphone</th>
+                </tr>
                 @foreach($admins as $admin)
 
-                    <li class="list-group-item">{{ $admin->firstName }}  {{ $admin->id }}</li>
+                    <tr>
+                        <td>{{ $admin->firstName }}</td>
+                        <td>{{ $admin->lastName }}</td>
+                        <td>{{ $admin->cin }}</td>
+                        <td>{{ $admin->email }}</td>
+                        <td>{{ $admin->tel }}</td>
+
+                    </tr>
 
                 @endforeach
+            </table>
             </ul>
         </div>
     </div>

@@ -8,6 +8,7 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\UsersController;
 use App\Models\User;
 use App\Models\Vehicule;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,9 +32,9 @@ Route::get('/about', function (){
 });
 
 
-Route::get('/users', [UsersController::class, 'index']);
+Route::get('/users', [UsersController::class, 'index'])->middleware('auth','hasRole:admin');
 
-Route::resource('vehicules', 'App\Http\Controllers\VehiculesController');
+Route::resource('vehicules', 'VehiculesController');
 
 Auth::routes();
 
@@ -58,7 +59,7 @@ Route::post('/paiement',[PaymentController::class, 'store']);
 Route::get('/offers', function(){ return view('offers'); });
 
 Route::get('/moniteur/ajouter', [UsersController::class, 'ajouter_moniteur'])->middleware('auth', 'hasRole:admin');
-Route::post('/moniteur/ajouter', [UsersController::class, 'ajouter_moniteur'])->middleware('auth', 'hasRole:admin');
+Route::post('/moniteur/ajouter', [UsersController::class, 'store_moniteur'])->middleware('auth', 'hasRole:admin');
 
 
 
