@@ -14,30 +14,87 @@
     </ul>
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-users" role="tabpanel" aria-labelledby="pills-users-tab">
-            <ul class="list-group">
+            <table class="table table-striped text-center color_perso1">
+                <tr class="bg-info text-white">
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>CIN</th>
+                    <th>e-mail</th>
+                    <th>Téléphone</th>
+                    <th>Paid</th>
+                </tr>
                 @foreach($users as $user)
 
-                    <li class="list-group-item">{{ $user->firstName }}  {{ $user->id }}</li>
+                    <tr>
+                        <td>{{ $user->firstName }}</td>
+                        <td>{{ $user->lastName }}</td>
+                        <td>{{ $user->cin }}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>{{ $user->tel }}</td>
+                        <td>
+                            @if($user->paid)
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                            </svg>
+                            @else
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+                            </svg>
+                            @endif
+                        </td>
+
+                    </tr>
 
                 @endforeach
+            </table>
             </ul>
         </div>
         <div class="tab-pane fade" id="pills-moniteurs" role="tabpanel" aria-labelledby="pills-moniteurs-tab">
-            <ul class="list-group">
+            <table class="table table-striped text-center color_perso1">
+                <tr class="bg-info text-white">
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>CIN</th>
+                    <th>e-mail</th>
+                    <th>Téléphone</th>
+                </tr>
                 @foreach($moniteurs as $moniteur)
 
-                    <li class="list-group-item">{{ $moniteur->firstName }}  {{ $moniteur->id }}</li>
+                    <tr>
+                        <td>{{ $moniteur->firstName }}</td>
+                        <td>{{ $moniteur->lastName }}</td>
+                        <td>{{ $moniteur->cin }}</td>
+                        <td>{{ $moniteur->email }}</td>
+                        <td>{{ $moniteur->tel }}</td>
+
+                    </tr>
 
                 @endforeach
+            </table>
             </ul>
         </div>
         <div class="tab-pane fade" id="pills-admins" role="tabpanel" aria-labelledby="pills-admins-tab">
-            <ul class="list-group">
+            <table class="table table-striped text-center color_perso1">
+                <tr class="bg-info text-white">
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>CIN</th>
+                    <th>e-mail</th>
+                    <th>Téléphone</th>
+                </tr>
                 @foreach($admins as $admin)
 
-                    <li class="list-group-item">{{ $admin->firstName }}  {{ $admin->id }}</li>
+                    <tr>
+                        <td>{{ $admin->firstName }}</td>
+                        <td>{{ $admin->lastName }}</td>
+                        <td>{{ $admin->cin }}</td>
+                        <td>{{ $admin->email }}</td>
+                        <td>{{ $admin->tel }}</td>
+
+                    </tr>
 
                 @endforeach
+            </table>
             </ul>
         </div>
     </div>
