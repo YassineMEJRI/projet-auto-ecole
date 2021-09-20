@@ -50,7 +50,7 @@ Route::get('/quiz/results', [TestController::class,'results']);
 
 Route::get('/rdv/ajouter', [RdvController::class,'ajouter'])->middleware('auth', 'hasRole:moniteur');
 Route::post('/rdv/ajouter', [RdvController::class,'store'])->middleware('auth', 'hasRole:moniteur');
-Route::get('/rdv/list', [RdvController::class,'index'])->middleware('auth','hasRole:moniteur');
+Route::get('/rdv/list', [RdvController::class,'index'])->middleware('auth','hasRole:userpaid');
 Route::post('/rdv/reserver/{id}', [RdvController::class, 'reserver']);
 
 Route::get('/offers',[PaymentController::class, 'index'])->middleware('auth');

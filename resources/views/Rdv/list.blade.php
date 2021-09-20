@@ -38,7 +38,6 @@
                       @endforeach
                   </table>
               </div>
-              <a class="btn btn-primary float-end" href="/rdv/ajouter">Ajouter un rendez-vous</a>
               <div class="tab-pane fade" id="pills-conduite" role="tabpanel" aria-labelledby="pills-conduite-tab">
                   <table class="table table-striped text-center">
                       <tr>
@@ -63,6 +62,8 @@
                       @endforeach
                   </table>
               </div>
+              <a class="btn btn-primary float-end" href="/rdv/ajouter">Ajouter un rendez-vous</a>
+
           </div>
     </div>
 @endsection
