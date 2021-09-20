@@ -19,9 +19,38 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
+<nav class=" navbar navbar-expand-lg navbar-light bg-light boxstyle">
+    <div class="container">
+        <div class="collapse navbar-collapse pos" id="navbarSupportedContent ">
+            <ul class=" fw-bold navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="fw-bold nav-item btn-check-preso text-white"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
+                <li class="fw-bold nav-item btn-check-preso"><a class="nav-link" href="#">about</a></li>
+                <li class="fw-bold nav-item btn-check-preso"><a class="nav-link" href="#">team</a></li>
+                <li class="fw-bold nav-item btn-check-preso"><a class="nav-link" href="#">contact</a></li>
+                <li class="fw-bold nav-item  nav-link">  |  </li>
+                @guest
+                <li class="fw-bold nav-item btn-check-preso"><a class="nav-link" href="#">login</a></li>
+                <li class="fw-bold nav-item btn-check-preso"><a class="nav-link" href="#">register</a></li>
+                @endguest
+                @auth
+                    <li class="nav-item btn-check-preso dropdown text-center">
+                        <a class="nav-link text-center dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i href="https://avatars.dicebear.com/api/initials/{{ Auth::user()->firstName }}-{{ Auth::user()->lastName }}.svg"></i>{{ Auth::user()->firstName }} {{ Auth::user()->lastName }}
+                        </a>
+                        <ul class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{{ route('logout') }}">logout</a></li>
+                            <li><a class="dropdown-item" href="/parametres">parametres</a></li>
+                        </ul>
+                    </li>
+                @endauth
+            </ul>
+        </div>
+    </div>
+</nav>
 <body>
+
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<!--    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{ config('app.name', 'Laravel') }}
@@ -61,7 +90,7 @@
             @endauth
         </div>
     </nav>
-
+-->
     <main class="py-4 container min-vh-100">
         @include('messages')
         @yield('content')
