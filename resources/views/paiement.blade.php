@@ -38,6 +38,11 @@
                                 <label for="ccv" class="form-label">CCV</label>
                                 <input type="text" class="form-control" id="month" name="ccv" placeholder="CCV">
                             </div>
+                            <input type="hidden" id="heuresCode" name="heuresCode" value="{{ $heuresCode }} ">
+                            <input type="hidden" id="heuresConduite" name="heuresConduite" value="{{ $heuresConduite }}">
+                            <input type="hidden" id="sommeinput" name="somme" value="{{ $somme }}">
+                            <input type="hidden" id="sommeConduiteinput" name="sommeConduite" value="{{ $sommeConduite }} ">
+                            <input type="hidden" id="sommeCodeinput" name="sommeCode" value="{{ $sommeCode }} ">
                             <div class="card-footer d-flex justify-content-center align-items-center">
                                 <button type="submit" class="btn btn-primary">Confirm Payment</button>
                             </div>
