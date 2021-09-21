@@ -2,20 +2,20 @@
 @section('content')
 {{--    TODO styling--}}
 
-    <a role="button" id="start_quiz" class="btn btn-primary btn-lg">Commencer le Quiz</a>
+    <a role="button" id="start_quiz" class="btn boxstyle btn-outline-primary btn-lg mt-9 ml-8">Commencer le Quiz</a>
 
-    <div id="test_container" style="display: none">
-        <div class="container">
+    <div id="test_container" style="display: none;" class="boxtool mt-6">
+        <div class="container lgnb">
             <h3 class="text-center">Question N°</h3>
             <h3 class="text-center" id="questionnumber"></h3>
-            <h2 id="question"></h2>
-            <input type="hidden" value="" id="questionId">
         </div>
 
-        <div class="container px-4">
+        <div class="container  px-4 lgnb mb-4">
             <div class="row gx-5">
                 <div class="col">
-                    <div class="p-3 bg-light position-relative h-100">
+                    <div class="p-3 position-relative h-100">
+                        <h4 id="question" class="mt-2 "></h4>
+                        <input type="hidden" value="" id="questionId">
                         <div class="btn-group-vertical position-absolute top-50 end-0 translate-middle-y w-100 d-flex" role="group" aria-label="Basic radio toggle button group">
                             <input type="radio" class="btn-check" name="btnradio" value="ans1" id="btnradio1" autocomplete="off">
                             <label id="btnradio1text" class="btn btn-outline-primary" for="btnradio1">Radio 1</label>
@@ -29,24 +29,24 @@
                             <input type="radio" class="btn-check" name="btnradio" value="ans4" id="btnradio4" autocomplete="off">
                             <label id="btnradio4text" class="btn btn-outline-primary" for="btnradio4">Radio 4</label>
                         </div>
-                        <div class="clearfix position-absolute bottom-0 end-0 mb-3">
-                            <a role="button" class="btn btn-lg btn-success float-end" id="next">Next</a>
+                        <div class="clearfix position-absolute bottom-0 ml-8 mb-3">
+                            <a role="button" class="btn btn-lg  btn-success float-end" id="next">Next</a>
                         </div>
                         <div class="clearfix position-absolute bottom-0 end-0 mb-3">
-                            <button id="finish" class="btn btn-lg btn-success float-end" style="display: none" onclick="finishQuiz()">Afficher le resultat</button>
+                            <button id="finish" class="btn btn-lg btn-primary float-end" style="display: none" onclick="finishQuiz()">Afficher le resultat</button>
                         </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="p-3 bg-light h-100">
-                        <img class="w-100" id="image" src="">
+                    <div class="p-3 h-100 ">
+                        <img class="w-100 radius" id="image" src="">
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="progress w-50 border border-1 border-info">
-            <div class="progress-bar" id="progress" role="progressbar" style="width: 10%" aria-valuemin="0"
+        <div class="progress w-75 ml-2 text-center border border-1 border-info">
+            <div class="progress-bar " id="progress" role="progressbar" style="width: 10%" aria-valuemin="0"
                  aria-valuemax="100"></div>
         </div>
     </div>
