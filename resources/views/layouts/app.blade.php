@@ -19,26 +19,49 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<nav class=" navbar navbar-expand-lg navbar-light bg-light boxstyle">
-    <div class="container">
+<nav class=" navbar navbar-expand-lg navbar-light bg-light boxstyle ">
+    <div class="container mt-3 mb-3">
         <div class="collapse navbar-collapse pos" id="navbarSupportedContent ">
             <ul class=" fw-bold navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="fw-bold nav-item btn-check-preso text-white"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
-                <li class="fw-bold nav-item btn-check-preso"><a class="nav-link" href="#">about</a></li>
-                <li class="fw-bold nav-item btn-check-preso"><a class="nav-link" href="#">team</a></li>
-                <li class="fw-bold nav-item btn-check-preso"><a class="nav-link" href="#">contact</a></li>
-                <li class="fw-bold nav-item  nav-link">  |  </li>
                 @guest
-                <li class="fw-bold nav-item btn-check-preso"><a class="nav-link" href="#">login</a></li>
-                <li class="fw-bold nav-item btn-check-preso"><a class="nav-link" href="#">register</a></li>
+                <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
+                <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="#">about</a></li>
+                <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="#">team</a></li>
+                <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="#">contact</a></li>
+                <li class="fw-bold nav-item  nav-link">  |  </li>
+                <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/login">login</a></li>
+                <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="#">register</a></li>
                 @endguest
                 @auth
+                    <li class="fw-bold nav-item btn-check-preso text-white"><a class="nav-link active" aria-current="page" href="/about#home">Home</a></li>
+                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/vehicules/create">ajouter vehicule</a></li>
+                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/quiz/ajouter">ajouter Quiz</a></li>
+                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/users">Liste Users</a></li>
+                    <li class="fw-bold nav-item nav-link">  |  </li>
+                        <li class="nav-item btn-check-preso dropdown text-center">
+                            <a href="#" class="nav-link active notif text-center" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" bi bi-bell-fill ml-2 color" viewBox="0 0 16 16">
+                                  <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
+                                </svg><span class="badge2 text-center">2</span>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li class="dropdown-item mw">
+                                    <div class="widthnotif"><p class="widthnotif">9h52: séance conduite à 20h30</p></div>
+                                </li>
+                                <li class="dropdown-item"><a>10h59: séance conduite à 20h30</a></li>
+                            </ul>
+                        </li>
                     <li class="nav-item btn-check-preso dropdown text-center">
-                        <a class="nav-link text-center dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i href="https://avatars.dicebear.com/api/initials/{{ Auth::user()->firstName }}-{{ Auth::user()->lastName }}.svg"></i>{{ Auth::user()->firstName }} {{ Auth::user()->lastName }}
+                        <a class="nav-link text-center dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://avatars.dicebear.com/api/initials/{{ Auth::user()->firstName }}_{{ Auth::user()->lastName }}.svg" class="disable rounded-icon active">{{ Auth::user()->firstName }} {{ Auth::user()->lastName }}
                         </a>
                         <ul class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{{ route('logout') }}">logout</a></li>
+                            <li>
+                                <form action="/logout" method="POST">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">logout</button>
+                                </form>
+                            </li>
                             <li><a class="dropdown-item" href="/parametres">parametres</a></li>
                         </ul>
                     </li>
