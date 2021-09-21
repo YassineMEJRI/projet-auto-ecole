@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NotificationsController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\RdvController;
@@ -56,5 +57,7 @@ Route::get('/paiement',[PaymentController::class, 'index']);
 Route::post('/paiement',[PaymentController::class, 'store']);
 
 Route::get('/offers', function(){ return view('offers'); });
+
+Route::get('/notifications',[NotificationsController::class, 'index'])->middleware('auth');
 
 
