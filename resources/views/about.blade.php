@@ -59,7 +59,7 @@
 <!-- End Home Revolution Slider Parallax Section -->
 <div class="site-wrapper content">
     <!-- Start Features Section -->
-    <section id="features">
+    <section id="about">
         <div class="container">
             <div class="col-md-12 text-center wow fadeInUp">
                 <h3 class="section-title">Auto Ecole ENSI</h3>

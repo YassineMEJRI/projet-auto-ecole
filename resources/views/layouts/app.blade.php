@@ -24,16 +24,16 @@
         <div class="collapse navbar-collapse pos" id="navbarSupportedContent ">
             <ul class=" fw-bold navbar-nav me-auto mb-2 mb-lg-0">
                 @guest
-                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
-                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="#">about</a></li>
-                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="#">team</a></li>
-                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="#">contact</a></li>
+                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" aria-current="page" href="/home">Home</a></li>
+                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/home#about">about</a></li>
+                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/home#team">team</a></li>
+                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/home#contact">contact</a></li>
                     <li class="fw-bold nav-item  nav-link">  |  </li>
                     <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/login">login</a></li>
-                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="#">register</a></li>
+                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/register">register</a></li>
                 @endguest
                 @auth
-                    <li class="fw-bold nav-item btn-check-preso text-white"><a class="nav-link active" aria-current="page" href="/about#home">Home</a></li>
+                    <li class="fw-bold nav-item btn-check-preso text-white"><a class="nav-link active" aria-current="page" href="/home">Home</a></li>
                     @if(Auth::user()->hasRole('admin'))
                         <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/moniteur/ajouter">Inscrir un moniteur</a></li>
                     @endif

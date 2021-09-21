@@ -26,9 +26,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about', function (){
+Route::get('/home', function (){
     return view('about');
-    //return view('layouts.app');
 });
 
 
@@ -38,7 +37,7 @@ Route::resource('vehicules', 'App\Http\Controllers\VehiculesController');
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+//Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/test', [TestController::class,'index'])->middleware('auth','hasRole:userpaid');
 
