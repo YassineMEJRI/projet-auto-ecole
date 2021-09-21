@@ -60,6 +60,7 @@
     <main class="py-4 container min-vh-100">
         @include('messages')
         @yield('content')
+        @include('notification')
     </main>
 </div>
 </body>

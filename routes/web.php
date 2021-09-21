@@ -42,6 +42,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/test', [TestController::class,'index'])->middleware('auth','hasRole:userpaid');
 
+
 Route::get('/nextquestion', [TestController::class,'nextQuestion']);
 
 Route::get('/quiz/ajouter', [QuestionController::class,'create'])->middleware('auth','hasRole:admin');
