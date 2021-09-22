@@ -71,7 +71,12 @@ class QuestionController extends Controller
 
     public function destroy($id){
         $question = Question::find($id);
+        $reponses = $question->reponses;
+        foreach ($reponses as $reponse){
+            $reponse->delete();
+        }
         $question->delete();
+
         return redirect('/quiz/list')->with('success', 'Question supprimée avec succés!');
     }
 

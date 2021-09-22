@@ -7,9 +7,9 @@ use App\Models\User;
 use App\Models\Vehicule;
 use Illuminate\Console\Command;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-
-
+use Illuminate\Support\Facades\Mail;
 
 
 class CheckupReminder extends Command
@@ -57,6 +57,18 @@ class CheckupReminder extends Command
             $notification->save();
 
         }
+
+        $user = DB::table('users')->select('firstName','lastName')
+            ->where('id','=',1)
+            ->get() ;
+
+        Mail::send('emails.visite', ['user' => $user,
+                                            'vehicules'=>$vehicules],
+            function ($m) use ($user) {
+                $m->from('autoecole@laravel.com', 'Auto ecole');
+                $m->to($user->email, $user->firstName ." ". $user->lastName)->subject('RAPPEL : Dates de prochaines visites des véhicules');
+            });
+
 
         $rdvs = Rdv::where('date_heure','>',Carbon::now())
             ->where('date_heure','<', Carbon::now()->add(2,'days'))
