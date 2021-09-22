@@ -22,9 +22,9 @@
     </tr>
     @foreach($vehicules as $vehicule)
         <tr>
-            <td >{{ $vehicule->matricule }}</td>
-            <td>{{ $vehicule->fabricant }}</td>
-            <td>{{ $vehicule->visite }}</td>
+            <td style="text-align: center ; border:1px black solid " >{{ $vehicule->matricule }}</td>
+            <td style="text-align: center ; border:1px black solid " >{{ $vehicule->fabricant }}</td>
+            <td style="text-align: center ; border:1px black solid " >{{ $vehicule->visite }}</td>
         </tr>
     @endforeach
 </table>

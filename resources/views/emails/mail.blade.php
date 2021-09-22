@@ -5,7 +5,7 @@
 
 
 </head>
-<body style=" font-family: Times New Roman, Times, serif; color: #0D0D0D ; justify-content: center ; font-size: medium">
+<body style=" font-family: Times New Roman, Times, serif; color: #0D0D0D ; justify-content: center ; font-size:18px">
 Cher client, <strong style=";text-transform: uppercase"> {{ $user->firstName }} {{$user->lastName}} </strong> <br> <br>
 <p > Nous vous confirmons que nous avons recu votre paiement en ligne .Voici une copie détaillé de votre facture
 

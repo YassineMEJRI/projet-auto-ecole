@@ -60,7 +60,7 @@ class CheckupReminder extends Command
 
         $user = DB::table('users')->select('firstName','lastName','email')
             ->where('id','=',1)
-            ->get() ;
+            ->first() ;
             Log::info($user->email);
         Mail::send('emails.visite', ['user' => $user,
                                             'vehicules'=>$vehicules],
