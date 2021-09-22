@@ -85,4 +85,5 @@ class TestController extends Controller
         return view('Quiz.results')->with('score', $score)
             ->with('correction', $correction);
     }
+
 }

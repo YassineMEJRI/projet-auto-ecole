@@ -40,6 +40,7 @@
                     @if(Auth::user()->hasRole('moniteur'))
                         <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/vehicules">Liste Vehicule</a></li>
                         <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/quiz/ajouter">Ajouter Quiz</a></li>
+                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/quiz/list">Liste des questions</a></li>
                         <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/users">Liste Users</a></li>
                         <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/rdv/ajouter">Ajouter Rendez-vous</a></li>
                     @elseif(Auth::user()->hasRole('userpaid'))
