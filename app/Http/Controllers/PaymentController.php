@@ -37,7 +37,7 @@ class PaymentController extends Controller
             $m->to($user->email, $user->firstName ." ". $user->lastName)->subject('Confirmation de paiement');
         });
 
-        return redirect('home')->with('success', 'Paiement validé!');
+        return redirect('/')->with('success', 'Paiement validé!');
     }
 
     public function paymentmethod(Request $request){
