@@ -49,19 +49,7 @@
                         <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/offers">Acheter un offre</a></li>
                     @endif
                     <li class="fw-bold nav-item nav-link">  |  </li>
-                    <li class="nav-item btn-check-preso dropdown text-center">
-                        <a href="#" class="nav-link active notif text-center" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" bi bi-bell-fill ml-2 color" viewBox="0 0 16 16">
-                                <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
-                            </svg><span class="badge2 text-center">2</span>
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li class="dropdown-item mw">
-                                <div class="widthnotif"><p class="widthnotif">9h52: séance conduite à 20h30</p></div>
-                            </li>
-                            <li class="dropdown-item"><a>10h59: séance conduite à 20h30</a></li>
-                        </ul>
-                    </li>
+                    @include('notification')
                     <li class="nav-item btn-check-preso dropdown text-center">
                         <a class="nav-link text-center dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="https://avatars.dicebear.com/api/initials/{{ Auth::user()->firstName }}_{{ Auth::user()->lastName }}.svg" class="disable rounded-icon active">{{ Auth::user()->firstName }} {{ Auth::user()->lastName }}
@@ -128,7 +116,6 @@
     <main class="py-4 container min-vh-100">
         @include('messages')
         @yield('content')
-        @include('notification')
     </main>
 </div>
 </body>
