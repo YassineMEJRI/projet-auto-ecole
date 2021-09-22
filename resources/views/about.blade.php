@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Visual</title>
+    <title>Auto-école</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <!-- Stlylesheet -->
@@ -59,7 +59,7 @@
 <!-- End Home Revolution Slider Parallax Section -->
 <div class="site-wrapper content">
     <!-- Start Features Section -->
-    <section id="features">
+    <section id="about">
         <div class="container">
             <div class="col-md-12 text-center wow fadeInUp">
                 <h3 class="section-title">Auto Ecole ENSI</h3>
