@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NotificationsController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\RdvController;
@@ -41,6 +42,7 @@ Auth::routes();
 
 Route::get('/test', [TestController::class,'index'])->middleware('auth','hasRole:userpaid');
 
+
 Route::get('/nextquestion', [TestController::class,'nextQuestion']);
 
 Route::get('/quiz/ajouter', [QuestionController::class,'create'])->middleware('auth','hasRole:admin');
@@ -63,5 +65,7 @@ Route::get('/parametres', [UsersController::class, 'parametres'])->middleware('a
 Route::post('/parametres/updatepassword', [UsersController::class, 'update_password'])->middleware('auth');
 Route::put('/parametres/updatedata', [UsersController::class, 'update_data'])->middleware('auth');
 
+
+Route::get('/notifications',[NotificationsController::class, 'index'])->middleware('auth');
 
 

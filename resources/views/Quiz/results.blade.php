@@ -27,7 +27,7 @@
                       <p>{{$cor->body}}</p>
                       <ul>
                           @foreach($cor->answers as $ans)
-                              <li class="{{ $ans->correct?"bg-success":"" }} {{ $cor->chosen->reponse_id==$ans->id?"border border-3 border-warning":"" }}">{{ $ans->body }}</li>
+                              <li class="{{ $ans->correct?"bg-success":"" }} @isset($cor->chosen){{ $cor->chosen->reponse_id==$ans->id?"border border-3 border-warning":"" }}@endisset">{{ $ans->body }}</li>
 
                               {{--                @foreach($cor->chosen as $cho)--}}
                               {{--                    @if($cho->reponse_id == $ans->id)--}}

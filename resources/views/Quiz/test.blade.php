@@ -57,6 +57,7 @@
         function nextQuestion() {
             $.ajax(
                 {
+                    //TODO change to post method requires sending csrf token
                     url: '/nextquestion',
                     dataType: 'json',
                     async: false,
