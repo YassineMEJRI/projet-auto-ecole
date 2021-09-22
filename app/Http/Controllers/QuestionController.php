@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class QuestionController extends Controller
 {
+    public function index(){
+        $questions =  Question::all();
+        return view('Quiz.list')->with('questions', $questions);
+    }
+
     public function create(){
         return view('Quiz.create_question');
     }
@@ -62,6 +67,12 @@ class QuestionController extends Controller
             $reponse4->save();
         }
         return redirect('/quiz/ajouter')->with('success','Question ajoutée avec succées');
+    }
+
+    public function destroy($id){
+        $question = Question::find($id);
+        $question->delete();
+        return redirect('/quiz/list')->with('success', 'Question supprimée avec succés!');
     }
 
 }
