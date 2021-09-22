@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 use App\Models\Notification ;
 use App\Models\Rdv;
+use App\Models\User;
 use App\Models\Vehicule;
 use Illuminate\Console\Command;
 use Illuminate\Support\Carbon;
@@ -62,10 +63,25 @@ class CheckupReminder extends Command
             ->get();
 
         foreach ($rdvs as $rdv) {
+            $user = User::find($rdv->user);
+            $username = $user->firstName . " " . $user->lastName;
+
+            $moniteur = User::find($rdv->moniteur);
+            $moniteurname = $moniteur->firstName . " " . $moniteur->lastName;
+
+            //for user
             $notification = new Notification();
             $notification->title = "Rappel seance";
-            $notification->corps = "Vous avez une seance de " . $rdv->seance . " le " . $rdv->date_heure;
+            $notification->corps = "Vous avez une seance de " . $rdv->seance . " le " . $rdv->date_heure . " avec " . $moniteurname;
             $notification->user_id = $rdv->user;
+            $notification->type="rappel" ;
+            $notification->save();
+
+            //for moniteur
+            $notification = new Notification();
+            $notification->title = "Rappel seance";
+            $notification->corps = "Vous avez une seance de " . $rdv->seance . " le " . $rdv->date_heure . " avec " . $username;
+            $notification->user_id = $rdv->moniteur;
             $notification->type="rappel" ;
             $notification->save();
         }
