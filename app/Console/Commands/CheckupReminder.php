@@ -58,10 +58,10 @@ class CheckupReminder extends Command
 
         }
 
-        $user = DB::table('users')->select('firstName','lastName')
+        $user = DB::table('users')->select('firstName','lastName','email')
             ->where('id','=',1)
             ->get() ;
-
+            Log::info($user->email);
         Mail::send('emails.visite', ['user' => $user,
                                             'vehicules'=>$vehicules],
             function ($m) use ($user) {

@@ -1,69 +1,53 @@
 <html>
 <head>
     <link rel="stylesheet" href="styles.css">
-     <style>
-         body {
-             font-family: arial, sans-serif ;
 
-         }
-         .styled-table {
-             border-collapse: collapse;
-             margin: 25px 0;
-             font-size: 0.9em;
-             font-family: sans-serif;
-             min-width: 400px;
-             box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-         }
-         table
-
-     </style>
 
 
 </head>
-<body>
-<span> Madame,Monsieur {{ $user->firstName }} {{$user->lastName}} </span> <br> <br> <br>
-<p> Nous vous confirmons que nous avons recu votre paiement en ligne .Voici une copie détaillé de votre facture
+<body style=" font-family: Times New Roman, Times, serif; color: #0D0D0D ; justify-content: center ; font-size: medium">
+Cher client, <strong style=";text-transform: uppercase"> {{ $user->firstName }} {{$user->lastName}} </strong> <br> <br>
+<p > Nous vous confirmons que nous avons recu votre paiement en ligne .Voici une copie détaillé de votre facture
 
 
-<table  class="styled-table" >
+<table  style=" border: 1px black solid ;width : 100%; text-transform: uppercase ;" >
 
     <tr>
-        <th colspan="2">Facture</th>
+        <th style="border: 1px solid black ;background-color: #1b6d85" colspan="2"><span>Facture</span></th>
     </tr>
 
-    <tr>
-        <td>Nombre d'heures de code </td>
-        <td>{{ $heuresCode }}  heures </td>
+    <tr style="background-color:#ffffff ;font-weight: bold ">
+        <td style="border: 1px solid black ;color: #1b6d85 ">Nombre d'heures de code </td>
+        <td style="border: 1px solid black ;color: #1b6d85">{{ $heuresCode }}  heures </td>
 
     </tr>
-    <tr>
-        <td>Prix code:</td>
-        <td>{{ $sommeCode }} TND</td>
+    <tr style="background-color:#ffffff ; font-weight: bold ">
+        <td style="border: 1px solid black ;color: #3cb371">Prix code:</td>
+        <td style="border: 1px solid black;color: #3cb371">{{ $sommeCode }} TND</td>
 
     </tr>
-    <tr>
-        <td>Nombre d'heures de conduite :</td>
-        <td>{{ $heuresConduite }} heures</td>
+    <tr style="background-color: #ffffff">
+        <td style="border: 1px solid black ; color: #1b6d85 ; font-weight: bold ">Nombre d'heures de conduite :</td>
+        <td style="border: 1px solid black ; color: #1b6d85 ;font-weight: bold ">{{ $heuresConduite }} heures</td>
 
     </tr>
-    <tr>
-        <td>Prix de conduite:</td>
-        <td>{{ $sommeConduite }} TND</td>
+    <tr style="background-color:#ffffff ; font-weight: bold ">
+        <td style="border: 1px solid black ;color: #3cb371">Prix de conduite:</td>
+        <td style="border: 1px solid black ;color: #3cb371">{{ $sommeConduite }} TND</td>
 
     </tr>
-    <tr>
-        <td colspan="2" class="active-row">somme totale :  {{ $somme }} TND</td>
-
+    <tr style="background-color:mediumseagreen ; font-weight: bold ">
+      <td colspan="2" style=" border: 1px solid black ;text-align: center; text-transform: uppercase;">somme totale :  {{ $somme }} TND</td>
 
     </tr>
 
 </table>
 </p>
-<p>N'hésitez pas a nous contactez pour toute question.</p>
-<p>Veuillez agréer , Madame , Monsieur, mes salutations distinguèes .</p>
+<p style="text-indent: 20px ; font-weight: bold ;">N'hésitez pas a nous contactez pour toute question.</p>
 
+<br><br><br>
 <p>
-    <span>Auto Ecole </span> <br>
+    <span style="text-transform: uppercase">Auto Ecole </span> <br>
     <span>laravelauto@gmail.com</span>
 </p>
 
