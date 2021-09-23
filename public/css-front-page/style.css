@@ -1105,8 +1105,18 @@ nav {
         padding-right: 0;
         top: auto;
     }
+
+    .text-center{
+        text-align: center!important;
+    }
+    .sizebox{
+        height: 54px;
+    }
+    .mb-1{
+        margin-bottom: 10px!important;
+    }
     .dropdown-menu > li > a {
-        color: #CCC;
+        color: #0a0a0a;
         font-size: 12px;
         font-weight: 400;
         text-transform: none;
@@ -2419,6 +2429,9 @@ border-bottom:1px dotted #ccc;
     width: 30px;
     height: 30px;
     margin-right: 8px;
+}
+.mtinv2{
+    margin-top: -4px!important;
 }
 /*----- Video Popup Section -----*/
 #video-section {

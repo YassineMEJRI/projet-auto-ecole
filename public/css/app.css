@@ -3004,7 +3004,9 @@ textarea.form-control-lg {
 .input-group-sm > .form-select {
   padding-right: 3rem;
 }
-
+.sizebox{
+    height: 50px;
+}
 .input-group:not(.has-validation) > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu),
 .input-group:not(.has-validation) > .dropdown-toggle:nth-last-child(n+3) {
   border-top-right-radius: 0;
