@@ -23,29 +23,82 @@
     <!-- Skin Color -->
     <link rel="stylesheet" href="{{ asset('css-front-page/colors/green.css') }}" id="color-skins"/>
 </head>
+<header>
+    <nav class="navbar navbar-default navbar-small">
+        <div class="container">
+
+
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand to-top" rel="home" href="#">
+                </a>
+            </div>
+        @guest
+            <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="main-nav">
+                    <img src="storage/images/logo.png" class="logo-put logo-size float-start mt-0 ml-1" style="width: 10%; height: 10%;"/>
+                    <ul class="nav navbar-nav  navbar-right">
+                        <li class="to-top btn-check-preso"><a href="/home#home-revolution-slider">Home</a></li>                        <li class="to-section btn-check-preso"><a href="/home#about">About Us</a></li>
+                        <li class="to-section btn-check-preso" ><a href="/home#team" >Team</a></li>
+                        <li class="to-section btn-check-preso"><a href="/home#contact">Contact</a></li>
+                        <li class="to-section"><a>|</a></li>
+                        <li class="to-section btn-check-preso"><a role="button" href="{{ route('login') }}">Login</a></li>
+                        <li class="to-section btn-check-preso"><a role="button" href="{{ route('register') }}">Register</a></li>
+                    </ul>
+                </div>
+            @endguest
+            @auth
+                <div class="collapse navbar-collapse" id="main-nav">
+                    <img src="storage/images/logo.png" class="logo-put logo-size float-start mt-0 ml-1" style="width: 10%; height: 10%;"/>
+                    <ul class="nav navbar-nav  navbar-right">
+                        <li class="to-top btn-check-preso"><a href="/home#home-revolution-slider">Home</a></li>
+                        @if(Auth::user()->hasRole('admin'))
+                        <li class="to-section btn-check-preso"><a class="nav-link active colorhover" href="/moniteur/ajouter">Inscrire un moniteur</a></li>
+                        @endif
+                        @if(Auth::user()->hasRole('moniteur'))
+                        <li class="to-section btn-check-preso"><a class="nav-link active colorhover" href="/vehicules">Liste Vehicule</a></li>
+                        <li class="to-section btn-check-preso"><a class="nav-link active colorhover" href="/quiz/ajouter">Ajouter Quiz</a></li>
+                        <li class="to-section btn-check-preso"><a class="nav-link active colorhover" href="/users">Liste Users</a></li>
+                        <li class="to-section btn-check-preso"><a class="nav-link active colorhover" href="/rdv/ajouter">Ajouter Rendez-vous</a></li>
+                        @elseif(Auth::user()->hasRole('userpaid'))
+                            <li class="to-section btn-check-preso"><a class="nav-link active colorhover" href="/test">Passer un Quiz</a></li>
+                            <li class="to-section btn-check-preso"><a class="nav-link active colorhover" href="/rdv/list">Reserver une séance</a></li>
+                        @endif
+                            <li class="disable to-section"><a>|</a></li>
+                        <li class=" btn-check-preso pl-4 pr-4">
+                            @include('notification')
+                        </li>
+                        <li class="nav-item btn-check-preso dropdown text-center ">
+                            <a class="nav-link text-center dropdown-toggle active colorhover" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="https://avatars.dicebear.com/api/initials/{{ Auth::user()->firstName }}_{{ Auth::user()->lastName }}.svg" class="mr-2 disable rounded-icon active">{{ Auth::user()->firstName }} {{ Auth::user()->lastName }}
+                            </a>
+                            <ul class="dropdown-menu dropdown-toggle text-center" aria-labelledby="navbarDropdown">
+                                <li>
+                                        @csrf
+                                        <a role="button" type="submit" class="dropdown-item-style text-center stylelist">logout</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item-style text-center stylelist" href="/parametres">parametres</a>
+                                </li>
+                            </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            @endauth
+        </div>
+    </nav>
+</header>
 <body>
 
 <!-- Start Preloader -->
-<div id="loader">
-    <div class="spinner">
-        <div class="cube cube0"></div>
-        <div class="cube cube1"></div>
-        <div class="cube cube2"></div>
-        <div class="cube cube3"></div>
-        <div class="cube cube4"></div>
-        <div class="cube cube5"></div>
-        <div class="cube cube6"></div>
-        <div class="cube cube7"></div>
-        <div class="cube cube8"></div>
-        <div class="cube cube9"></div>
-        <div class="cube cube10"></div>
-        <div class="cube cube11"></div>
-        <div class="cube cube12"></div>
-        <div class="cube cube13"></div>
-        <div class="cube cube14"></div>
-        <div class="cube cube15"></div>
-    </div>
-</div>
+
 <section id="home-revolution-slider">
     <div class="hero">
         <div class="tp-banner-container">
@@ -135,9 +188,6 @@
             </div>
         </div>
     </section>
-    <!-- End Fun Facts Section -->
-
-    <!-- Start Team Section -->
     <section id="team">
         <div class="container">
             <div class="col-md-12 text-center wow fadeInUp">
@@ -250,9 +300,6 @@
             </div>
         </div>
     </section>
-    <!-- End Team Section -->
-
-    <!-- Start Quote Section -->
     <section id="quote" class="parallax-section-6">
         <div class="container">
             <div class="row wow fadeInUp">
@@ -271,8 +318,6 @@
             </div>
         </div>
     </section>
-    <!-- End Quote Section -->
-    <!-- Start Contact Form Section -->
     <section id="contact">
         <div class="container">
             <div class="row">
@@ -316,16 +361,8 @@
             </div>
         </div>
     </section>
-    <!-- End Contact Form Section -->
-
-    <!-- Start Google Map Section -->
     <div id="map"></div>
-    <!-- End Google Map Section -->
-
-    <!-- Start Footer 1 -->
     <footer id="footer">
-        <!-- End Footer Widgets -->
-
         <div class="footer-copyright">
             <div class="container">
                 <div class="row">
@@ -389,9 +426,6 @@
         <!-- End Footer Copyright -->
 
     </footer>
-    <!-- End Footer 1 -->
-
-    <!-- Start Back To Top -->
     <a id="back-to-top">
         <i class="icon ion-chevron-up"></i>
     </a>
