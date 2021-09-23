@@ -39,10 +39,10 @@
                         <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover" href="/moniteur/ajouter">Inscrire un moniteur</a></li>
                     @endif
                     @if(Auth::user()->hasRole('moniteur'))
-                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover" href="/vehicules">Liste Vehicule</a></li>
-                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover" href="/quiz/ajouter">Ajouter Quiz</a></li>
-                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover" href="/users">Liste Users</a></li>
-                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover" href="/rdv/ajouter">Ajouter Rendez-vous</a></li>
+                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/vehicules">Liste Vehicule</a></li>
+                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/quiz/ajouter">Ajouter Quiz</a></li>
+                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/users">Liste Users</a></li>
+                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/rdv/ajouter">Ajouter Rendez-vous</a></li>
                     @elseif(Auth::user()->hasRole('userpaid'))
                         <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover" href="/test">Passer un Quiz</a></li>
                         <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover" href="/rdv/list">Reserver une séance</a></li>

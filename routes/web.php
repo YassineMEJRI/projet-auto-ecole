@@ -46,8 +46,10 @@ Route::get('/test', [TestController::class,'index'])->middleware('auth','hasRole
 Route::get('/nextquestion', [TestController::class,'nextQuestion']);
 
 Route::get('/quiz/ajouter', [QuestionController::class,'create'])->middleware('auth','hasRole:admin');
-Route::post('/quiz/ajouter', [QuestionController::class,'store']);
+Route::post('/quiz/ajouter', [QuestionController::class,'store'])->middleware('auth','hasRole:admin');;
 Route::get('/quiz/results', [TestController::class,'results']);
+Route::get('/quiz/list', [QuestionController::class,'index'])->middleware('auth', 'hasRole:admin');
+Route::delete('/questions/{id}', [QuestionController::class,'destroy'])->middleware('auth', 'hasRole:admin');
 
 Route::get('/rdv/ajouter', [RdvController::class,'ajouter'])->middleware('auth', 'hasRole:moniteur');
 Route::post('/rdv/ajouter', [RdvController::class,'store'])->middleware('auth', 'hasRole:moniteur');
