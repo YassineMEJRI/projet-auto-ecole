@@ -79,9 +79,10 @@
                                 <img src="https://avatars.dicebear.com/api/initials/{{ Auth::user()->firstName }}_{{ Auth::user()->lastName }}.svg" class="mr-2 rounded-icon active">{{ Auth::user()->firstName }} {{ Auth::user()->lastName }}
                             </a>
                             <ul class="dropdown-menu dropdown-toggle text-center" aria-labelledby="navbarDropdown">
-                                <li>
+                                <li><form action="/logout" method="POST">
                                         @csrf
-                                        <a role="button" type="submit" class="dropdown-item-style text-center stylelist">logout</a>
+                                        <a type="submit" class="dropdown-item-style text-center stylelist"><button type="submit" >logout</button></a>
+                                    </form>
                                 </li>
                                 <li>
                                     <a class="dropdown-item-style text-center stylelist" href="/parametres">parametres</a>

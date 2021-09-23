@@ -1076,6 +1076,30 @@ nav {
       overflow-x: hidden;
    }
 }
+.btn-outline-light {
+    color: #f8f9fa;
+    border-color: #f8f9fa;
+}
+.btn-outline-light:hover {
+    color: #000;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+}
+.btn-check:focus + .btn-outline-light, .btn-outline-light:focus {
+    box-shadow: 0 0 0 0.25rem rgba(248, 249, 250, 0.5);
+}
+.btn-check:checked + .btn-outline-light, .btn-check:active + .btn-outline-light, .btn-outline-light:active, .btn-outline-light.active, .btn-outline-light.dropdown-toggle.show {
+    color: #000;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+}
+.btn-check:checked + .btn-outline-light:focus, .btn-check:active + .btn-outline-light:focus, .btn-outline-light:active:focus, .btn-outline-light.active:focus, .btn-outline-light.dropdown-toggle.show:focus {
+    box-shadow: 0 0 0 0.25rem rgba(248, 249, 250, 0.5);
+}
+.btn-outline-light:disabled, .btn-outline-light.disabled {
+    color: #f8f9fa;
+    background-color: transparent;
+}
 
 /*Dropdown*/
 @media (min-width: 992px) {
@@ -1105,7 +1129,6 @@ nav {
         padding-right: 0;
         top: auto;
     }
-
     .text-center{
         text-align: center!important;
     }
@@ -3554,6 +3577,12 @@ ul.caret-list li:before {
     font-size: 22px;
     color: #fff;
     z-index: 6;
+}
+button{
+    padding: 0;
+    border: none;
+    background: none;
+    height: 35px;
 }
 .search-button:hover {
     border: none;
