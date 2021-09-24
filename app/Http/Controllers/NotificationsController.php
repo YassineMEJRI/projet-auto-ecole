@@ -21,4 +21,11 @@ class NotificationsController extends Controller
 //        }
         return $notifications;
     }
+
+    public function read($id){
+        $read = DB::table('notifications')
+            ->where('user_id', $id)
+            ->update(['status' => 1]);
+        return $read;
+    }
 }

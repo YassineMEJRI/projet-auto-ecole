@@ -68,6 +68,7 @@ Route::post('/parametres/updatepassword', [UsersController::class, 'update_passw
 Route::put('/parametres/updatedata', [UsersController::class, 'update_data'])->middleware('auth');
 
 
-Route::get('/notifications',[NotificationsController::class, 'index'])->middleware('auth');
+Route::post('/notifications',[NotificationsController::class, 'index'])->middleware('auth');
+Route::post('/notifications/{id}',[NotificationsController::class, 'read'])->middleware('auth');
 
 
