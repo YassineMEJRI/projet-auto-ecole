@@ -21,4 +21,14 @@ class NotificationsController extends Controller
 //        }
         return $notifications;
     }
+
+    public function contactus(Request $request){
+        $this->validate($request,[
+            'name' => 'required',
+            'email' => 'required|email address',
+            'subject' => 'required',
+            'comments' => 'required'
+        ]);
+        return ('sent');
+    }
 }

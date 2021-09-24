@@ -282,16 +282,17 @@
                 </div>
                 <div class="col-md-7 wow fadeInUp">
                     <div id="message"></div>
-                    <form method="post" action="php/contact-form.php.htm" name="contactform" id="contactform">
+                    <form method="post" action="/contactusemail" name="contactform" id="contactform">
+                        @csrf
                         <fieldset>
-                            <input name="name" type="text" id="name" placeholder="Nom"/>
-                            <input name="email" type="text" id="email" placeholder="Prénom"/>
-                            <input name="subject" type="text" id="subject" placeholder="Sujet"/>
+                            <input name="name" required type="text" id="name" placeholder="Nom"/>
+                            <input name="email" required type="email" id="email" placeholder="Email"/>
+                            <input name="subject" required type="text" id="subject" placeholder="Objet"/>
                         </fieldset>
                         <fieldset>
                             <textarea name="comments" cols="40" rows="3" id="comments" placeholder="Message"></textarea>
                         </fieldset>
-                        <input type="submit" class="submit" id="submit" value="Envoyer un message" />
+                        <input required type="submit" class="submit" id="submit" value="Envoyer un message" />
                     </form>
                 </div>
                 <div class="col-md-5 wow fadeInLeft">
