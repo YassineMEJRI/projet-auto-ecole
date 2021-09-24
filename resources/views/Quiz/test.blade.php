@@ -60,8 +60,10 @@
                     //TODO change to post method requires sending csrf token
                     url: '/nextquestion',
                     dataType: 'json',
+                    type: 'post',
                     async: false,
                     data: {
+                        "_token": "{{ csrf_token() }}",
                         answer: $('input[name="btnradio"]:checked').val(),
                         questionId: $("#questionId").val()
                     },
