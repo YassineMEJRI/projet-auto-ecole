@@ -25,29 +25,29 @@
         <div class="collapse navbar-collapse pos" id="navbarSupportedContent ">
             <ul class=" fw-bold navbar-nav me-auto mb-2 mb-lg-0">
                 @guest
-                    <li class="fw-bold nav-item btn-check-preso "><a class="nav-link active colorhover" aria-current="page" href="/home">Home</a></li>
-                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover" href="/home#about">about</a></li>
-                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover" href="/home#team">team</a></li>
-                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover" href="/home#contact">contact</a></li>
+                    <li class="fw-bold nav-item btn-check-preso "><a class="nav-link active colorhover mt-1" aria-current="page" href="/home">Home</a></li>
+                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/home#about">about</a></li>
+                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/home#team">team</a></li>
+                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/home#contact">contact</a></li>
                     <li class="fw-bold nav-item  nav-link">  |  </li>
-                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover" href="/login">login</a></li>
-                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover" href="/register">register</a></li>
+                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/login">login</a></li>
+                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/register">register</a></li>
                 @endguest
                 @auth
-                    <li class="fw-bold nav-item btn-check-preso text-white"><a class="nav-link active colorhover" aria-current="page" href="/home">Home</a></li>
+                    <li class="fw-bold nav-item btn-check-preso text-white"><a class="nav-link active colorhover mt-1" aria-current="page" href="/home">Home</a></li>
                     @if(Auth::user()->hasRole('admin'))
-                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover" href="/moniteur/ajouter">Inscrire un moniteur</a></li>
+                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/moniteur/ajouter">Inscrire un moniteur</a></li>
                     @endif
                     @if(Auth::user()->hasRole('moniteur'))
-                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/vehicules">Liste Vehicule</a></li>
-                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/quiz/ajouter">Ajouter Quiz</a></li>
-                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/users">Liste Users</a></li>
-                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/rdv/ajouter">Ajouter Rendez-vous</a></li>
+                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/vehicules">Liste Vehicule</a></li>
+                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/quiz/ajouter">Ajouter Quiz</a></li>
+                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/users">Liste Users</a></li>
+                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/rdv/ajouter">Ajouter Rendez-vous</a></li>
                     @elseif(Auth::user()->hasRole('userpaid'))
-                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover" href="/test">Passer un Quiz</a></li>
-                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover" href="/rdv/list">Reserver une séance</a></li>
+                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/test">Passer un Quiz</a></li>
+                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/rdv/list">Reserver une séance</a></li>
                     @else
-                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover" href="/offers">Acheter un offre</a></li>
+                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/offers">Acheter un offre</a></li>
                     @endif
                     <li class="fw-bold nav-item nav-link">  |  </li>
                         <li class="btn-check-preso colorhover">
