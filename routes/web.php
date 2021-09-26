@@ -68,4 +68,4 @@ Route::put('/parametres/updatedata', [UsersController::class, 'update_data'])->m
 
 Route::get('/notifications',[NotificationsController::class, 'index'])->middleware('auth');
 
-
+Route::post('/contactusemail', [NotificationsController::class, 'contactus']);
