@@ -6,6 +6,7 @@ use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class NotificationsController extends Controller
@@ -30,6 +31,9 @@ class NotificationsController extends Controller
             'subject' => 'required',
             'comments' => 'required'
         ]);
+
+        $request->comments = nl2br($request->comments, true);
+
         Mail::send('emails.contact', [
             'name' => $request->name,
             'comments' => $request->comments

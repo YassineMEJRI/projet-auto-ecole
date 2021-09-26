@@ -310,7 +310,7 @@
                             </abbr> : +216 71 335 210 <br>
                             <abbr title="Email">
                                 <strong>Email </strong>
-                            </abbr>: autoecole@gmail.com <br>
+                            </abbr>: laravelauto@gmail.com <br>
                         </address>
                     </address>
                 </div>
