@@ -6,6 +6,7 @@ use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class NotificationsController extends Controller
 {
@@ -25,10 +26,19 @@ class NotificationsController extends Controller
     public function contactus(Request $request){
         $this->validate($request,[
             'name' => 'required',
-            'email' => 'required|email address',
+            'email' => 'required',
             'subject' => 'required',
             'comments' => 'required'
         ]);
-        return ('sent');
+        Mail::send('emails.contact', [
+            'name' => $request->name,
+            'comments' => $request->comments
+        ],
+            function ($m) use ($request) {
+                $m->from('autoecole@laravel.com', 'Auto ecole');
+                $m->to($request->email, $request->name)->subject('[Email reçu] ' . $request->subject);
+            });
+
+        return redirect('/home');
     }
 }

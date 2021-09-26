@@ -282,7 +282,7 @@
                 </div>
                 <div class="col-md-7 wow fadeInUp">
                     <div id="message"></div>
-                    <form method="post" action="/contactusemail" name="contactform" id="contactform">
+                    <form method="post" action="/contactusemail">
                         @csrf
                         <fieldset>
                             <input name="name" required type="text" id="name" placeholder="Nom"/>
@@ -292,7 +292,7 @@
                         <fieldset>
                             <textarea name="comments" cols="40" rows="3" id="comments" placeholder="Message"></textarea>
                         </fieldset>
-                        <input required type="submit" class="submit" id="submit" value="Envoyer un message" />
+                        <input type="submit" class="submit" id="submit" value="Envoyer un message" />
                     </form>
                 </div>
                 <div class="col-md-5 wow fadeInLeft">
