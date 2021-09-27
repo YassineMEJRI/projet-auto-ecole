@@ -69,6 +69,8 @@
                         @elseif(Auth::user()->hasRole('userpaid'))
                             <li class="to-section btn-check-preso"><a class="nav-link active colorhover sizebox" href="/test">Passer un Quiz</a></li>
                             <li class="to-section btn-check-preso"><a class="nav-link active colorhover sizebox" href="/rdv/list">Reserver une séance</a></li>
+                        @else
+                            <li class="to-section btn-check-preso"><a class="nav-link active colorhover sizebox" href="/offers">Acheter un offre</a></li>
                         @endif
                             <li class="disable to-section"><a>|</a></li>
                         <li class=" btn-check-preso pl-4 pr-4">
