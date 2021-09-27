@@ -55,6 +55,7 @@ Route::get('/rdv/ajouter', [RdvController::class,'ajouter'])->middleware('auth',
 Route::post('/rdv/ajouter', [RdvController::class,'store'])->middleware('auth', 'hasRole:moniteur');
 Route::get('/rdv/list', [RdvController::class,'index'])->middleware('auth','hasRole:userpaid');
 Route::post('/rdv/reserver/{id}', [RdvController::class, 'reserver']);
+Route::get('/rdv/schedule', [RdvController::class, 'calendrier'])->middleware('auth', 'hasRole:moniteur');
 
 Route::get('/offers',[PaymentController::class, 'index'])->middleware('auth');
 Route::get('/paiement',[PaymentController::class, 'paymentmethod'])->middleware('auth');

@@ -85,4 +85,14 @@ class RdvController extends Controller
             return redirect('/rdv/list')->with('error', "Erreur lors de la reservation!");
 
     }
+
+    public function calendrier(){
+        $rdvs = DB::table('rdvs')
+            ->where('moniteur', '=', Auth::user()->id)
+            ->orderBy('date_heure', 'DESC')
+            ->leftJoin('users','rdvs.user', '=', 'users.id')
+            ->select('rdvs.date_heure as date_heure', 'rdvs.seance as seance', 'users.firstName as fn', 'users.lastName as ln')
+            ->get();
+        return view('Rdv.calendrier')->with('rdvs',$rdvs);
+    }
 }

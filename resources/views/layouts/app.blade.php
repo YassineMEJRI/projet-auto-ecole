@@ -43,6 +43,9 @@
                         <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/quiz/ajouter">Ajouter Quiz</a></li>
                         <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/users">Liste Users</a></li>
                         <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/rdv/ajouter">Ajouter Rendez-vous</a></li>
+                            @if(!Auth::user()->hasRole('admin'))
+                                <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/rdv/schedule">Calendrier</a></li>
+                            @endif
                     @elseif(Auth::user()->hasRole('userpaid'))
                         <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/test">Passer un Quiz</a></li>
                         <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/rdv/list">Reserver une séance</a></li>
