@@ -1,19 +1,40 @@
 @extends('layouts.app')
 @section('content')
-    <form method="GET" action="/paiement">
+    <div  class="container w-75 my-5 boxtool mt-5" style="height:450px;">
+        <form method="GET" action="/paiement">
         @csrf
-        <label for="heuresCode" class="form-label">Nombre d'heures de code: 7dt/hr</label>
-        <input type="range" class="form-range" min="5" max="20" value="5" step="1" name="heuresCode" id="heuresCode" onchange="calcul_somme()">
-        <div id="nbHrCode">5 heures</div> <div id="sommeCode">35 dt</div>
-        <label for="heuresConduite" class="form-label">Nombre d'heures de conduite: 20dt/hr</label>
-        <input type="range" class="form-range" min="10" max="50" value="10" step="1" name="heuresConduite" id="heuresConduite" onchange="calcul_somme()">
-        <div id="nbHrConduite">10 heures</div> <div id="sommeConduite">200 dt</div>
-        <div><h3 id="somme" class="text-success fw-bold">235 dt</h3></div>
+            <div class="row">
+                <label for="heuresCode" class="fw-bold form-label float-lg-start lgnb text-center">Nombre d'heures de code: 7dt/hr</label>
+                <div class="mb-2">
+                    <div class="d-flex">
+                        <input type="range" class="form-range w-75 mt-1" min="5" max="20" value="5" step="1" name="heuresCode" id="heuresCode" onchange="calcul_somme()">
+                        <div id="nbHrCode" class ="btn btn-outline-primary ml-0 w-13">5 heures</div>
+                    </div>
+                </div>
+                <div class="mb-2 text-center ml-4">
+                    <label class="fw-bold float-lg-start mt-2 text-center"><h4 class="text-center fw-bold">le prix total de code:</h4></label>
+                    <div id="sommeCode" class="btn btn-outline-primary w-13"><h3 class="fw-bold mt-1"                                                           >35dt</h3></div>
+                </div>
+            </div>
+
+        <div class="row">
+        <label for="heuresConduite" class="fw-bold form-label float-lg-start  lgnb text-center"> Nombre d'heures de conduite: 20dt/hr</label>
+            <div class="mb-2">
+                <div class="d-flex">
+                    <input type="range" class="form-range w-75 mt-1" min="10" max="50" value="10" step="1" name="heuresConduite" id="heuresConduite" onchange="calcul_somme()">
+                    <div id="nbHrConduite" class="btn btn-outline-primary ml-0 w-13">10 heures</div>
+                </div>
+            <div id="sommeConduite" class="btn btn-secondary mx-2">200 dt</div>
+            </div>
+        <div><h3 id="somme" class="text-success  btn btn-secondary ">235 dt</h3></div>
+
+
         <input type="hidden" id="sommeinput" name="somme" value="235">
         <input type="hidden" id="sommeConduiteinput" name="sommeConduite" value="200">
         <input type="hidden" id="sommeCodeinput" name="sommeCode" value="35">
-        <button type="submit" class="btn btn-primary">Passer au paiement</button>
-    </form>
+        <button type="submit" class="btn btn-primary float-end mt-2 mb-4">Passer au paiement</button>
+        </form>
+ </div>
     <script>
         function calcul_somme(){
             var nbHCod = $('input[name=heuresCode]').val();

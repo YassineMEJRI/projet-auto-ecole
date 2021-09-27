@@ -21,37 +21,39 @@
 </head>
 <nav class=" navbar navbar-expand-lg navbar-light bg-light boxstyle ">
     <div class="container mt-3 mb-3">
+        <img src="/storage/images/logo.png" class="logo-put logo-size float-start mt-0 ml-0"/>
         <div class="collapse navbar-collapse pos" id="navbarSupportedContent ">
             <ul class=" fw-bold navbar-nav me-auto mb-2 mb-lg-0">
                 @guest
-                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" aria-current="page" href="/home">Home</a></li>
-                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/home#about">about</a></li>
-                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/home#team">team</a></li>
-                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/home#contact">contact</a></li>
+                    <li class="fw-bold nav-item btn-check-preso "><a class="nav-link active colorhover mt-1" aria-current="page" href="/home">Home</a></li>
+                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/home#about">about</a></li>
+                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/home#team">team</a></li>
+                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/home#contact">contact</a></li>
                     <li class="fw-bold nav-item  nav-link">  |  </li>
-                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/login">login</a></li>
-                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/register">register</a></li>
+                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/login">login</a></li>
+                    <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/register">register</a></li>
                 @endguest
                 @auth
-                    <li class="fw-bold nav-item btn-check-preso text-white"><a class="nav-link active" aria-current="page" href="/home">Home</a></li>
+                    <li class="fw-bold nav-item btn-check-preso text-white"><a class="nav-link active colorhover mt-1" aria-current="page" href="/home">Home</a></li>
                     @if(Auth::user()->hasRole('admin'))
-                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/moniteur/ajouter">Inscrir un moniteur</a></li>
+                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/moniteur/ajouter">Inscrire un moniteur</a></li>
                     @endif
                     @if(Auth::user()->hasRole('moniteur'))
-                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/vehicules">Liste Vehicule</a></li>
-                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/quiz/ajouter">Ajouter Quiz</a></li>
-                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/users">Liste Users</a></li>
-                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/rdv/ajouter">Ajouter Rendez-vous</a></li>
+                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/vehicules">Liste Vehicule</a></li>
+                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/quiz/ajouter">Ajouter Quiz</a></li>
+                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/users">Liste Users</a></li>
+                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/rdv/ajouter">Ajouter Rendez-vous</a></li>
                     @elseif(Auth::user()->hasRole('userpaid'))
-                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/test">Passer un Quiz</a></li>
-                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/rdv/list">Reserver une séance</a></li>
+                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/test">Passer un Quiz</a></li>
+                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/rdv/list">Reserver une séance</a></li>
                     @else
-                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active" href="/offers">Acheter un offre</a></li>
+                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/offers">Acheter un offre</a></li>
                     @endif
                     <li class="fw-bold nav-item nav-link">  |  </li>
-                    @include('notification')
-                    <li class="nav-item btn-check-preso dropdown text-center">
-                        <a class="nav-link text-center dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <li class="btn-check-preso colorhover">
+                            @include('notification')</li>
+                    <li class="nav-item btn-check-preso dropdown text-center ">
+                        <a class="nav-link text-center  active colorhover" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="https://avatars.dicebear.com/api/initials/{{ Auth::user()->firstName }}_{{ Auth::user()->lastName }}.svg" class="disable rounded-icon active">{{ Auth::user()->firstName }} {{ Auth::user()->lastName }}
                         </a>
                         <ul class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
@@ -122,9 +124,7 @@
 <!-- Footer -->
 <footer class="text-center text-lg-start bg-light text-muted">
     <!-- Section: Social media -->
-    <section
-        class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
-    >
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
         <!-- Left -->
 
         <!-- Right -->
