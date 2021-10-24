@@ -18,7 +18,7 @@ class VehiculesController extends Controller
      */
     public function __construct(){
         $this->middleware('auth');
-        $this->middleware('hasRole:admin');
+        $this->middleware('hasRole:moniteur');
     }
     public function index()
     {
