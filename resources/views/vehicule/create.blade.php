@@ -29,10 +29,9 @@
             <div class=" row mb-3 col-sm-8 d-md-flex justify-content-center">
                 <label for="type" class="fw-bold my-3 text-center label-text ml-11">Type<span class="text-danger">*</span></label>
                         <select name="type" class="text-center form-select ml-11 rounded-input" aria-label="Default select example">
-                            <option  name="type" id="typeB"selected>zina & aziza</option>
-                            <option  name="type" id="typeB" >camion </option>
-                            <option  name="type" id="typeA" value="A">voiture </option>
-                            <option>moteur </option>
+                            <option  name="type" id="typeB">Camion </option>
+                            <option  name="type" id="typeA" selected>Voiture </option>
+                            <option name="type" id="typeC">Moto </option>
                         </select>
             </div>
                 <div class="row mb-3 d-md-flex justify-content-center">

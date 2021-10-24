@@ -32,7 +32,7 @@ Route::get('/home', function (){
 });
 
 
-Route::get('/users', [UsersController::class, 'index'])->middleware('auth','hasRole:admin');
+Route::get('/users', [UsersController::class, 'index'])->middleware('auth','hasRole:moniteur');
 
 Route::resource('vehicules', 'App\Http\Controllers\VehiculesController');
 

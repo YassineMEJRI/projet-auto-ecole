@@ -1,10 +1,4 @@
 <!DOCTYPE html>
-<!--
-	 by TEMPLATE STOCK
-	templatestock.co @templatestock
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
-
 <html lang="en">
 <head>
     <!-- Meta Data -->
@@ -40,11 +34,12 @@
                 </a>
             </div>
         @guest
-            <!-- Collect the nav links, forms, and other content for toggling -->
+
                 <div class="collapse navbar-collapse" id="main-nav">
                     <img src="storage/images/logo.png" class="logo-put logo-size float-start mt-0 ml-1" style="width: 10%; height: 10%;"/>
                     <ul class="nav navbar-nav  navbar-right">
-                        <li class="to-top btn-check-preso sizebox"><a href="/home#home-revolution-slider">Home</a></li>                        <li class="to-section btn-check-preso"><a href="/home#about">About Us</a></li>
+                        <li class="to-top btn-check-preso sizebox"><a href="/home#home-revolution-slider">Home</a></li>
+                        <li class="to-section btn-check-preso"><a href="/home#about">About Us</a></li>
                         <li class="to-section btn-check-preso sizebox" ><a href="/home#team" >Team</a></li>
                         <li class="to-section btn-check-preso sizebox"><a href="/home#contact">Contact</a></li>
                         <li class="to-section"><a>|</a></li>
@@ -60,10 +55,10 @@
                         <li class="to-top btn-check-preso"><a href="/home#home-revolution-slider" class=" nav-link active colorhover sizebox">Home</a></li>
                         @if(Auth::user()->hasRole('admin'))
                         <li class="to-section btn-check-preso "><a class="nav-link active colorhover sizebox" href="/moniteur/ajouter">Inscrire un moniteur</a></li>
+                        <li class="to-section btn-check-preso"><a class="nav-link active colorhover sizebox" href="/quiz/ajouter">Ajouter Quiz</a></li>
                         @endif
                         @if(Auth::user()->hasRole('moniteur'))
                         <li class="to-section btn-check-preso"><a class="nav-link active colorhover sizebox" href="/vehicules">Liste Vehicule</a></li>
-                        <li class="to-section btn-check-preso"><a class="nav-link active colorhover sizebox" href="/quiz/ajouter">Ajouter Quiz</a></li>
                         <li class="to-section btn-check-preso"><a class="nav-link active colorhover sizebox" href="/users">Liste Users</a></li>
                         <li class="to-section btn-check-preso"><a class="nav-link active colorhover sizebox" href="/rdv/ajouter">Ajouter Rendez-vous</a></li>
                         @elseif(Auth::user()->hasRole('userpaid'))
@@ -73,9 +68,9 @@
                             <li class="to-section btn-check-preso"><a class="nav-link active colorhover sizebox" href="/offers">Acheter un offre</a></li>
                         @endif
                             <li class="disable to-section"><a>|</a></li>
-                        <li class=" btn-check-preso pl-4 pr-4">
-                            @include('notification')
-                        </li>
+{{--                        <li class=" btn-check-preso pl-4 pr-4">--}}
+{{--                            @include('notification')--}}
+{{--                        </li>--}}
                         <li class="nav-item btn-check-preso dropdown text-center sizebox">
                             <a class="nav-link text-center dropdown-toggle active colorhover mtinv2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="https://avatars.dicebear.com/api/initials/{{ Auth::user()->firstName }}_{{ Auth::user()->lastName }}.svg" class="mr-2 rounded-icon active">{{ Auth::user()->firstName }} {{ Auth::user()->lastName }}
@@ -90,7 +85,6 @@
                                     <a class="dropdown-item-style text-center stylelist" href="/parametres">parametres</a>
                                 </li>
                             </ul>
-                            </div>
                         </li>
                     </ul>
                 </div>
@@ -161,7 +155,6 @@
         <div class="container">
             <div class="col-md-12 text-center white wow fadeInUp">
                 <h3 class="section-title"> Nos avantages et statistiques </h3>
-                <p class="subheading">Mariem ZARAI</p>
             </div>
             <div class="counter-row row text-center wow fadeInUp">
                 <div class="col-md-3 col-sm-6 fact-container">
@@ -228,8 +221,8 @@
                     </div>
                     <div class="member-info wow fadeInUp">
                         <h4>Mourad Sellami</h4>
-                        <h5 class="highlight">front-END</h5>
-                        <p>Ingénieur en informatique et un formateur en graphique design</p>
+                        <h5 class="highlight">Co-Founder</h5>
+{{--                        <p>Ingénieur en informatique et un formateur en graphique design</p>--}}
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-3 team-member">
@@ -262,14 +255,14 @@
                     </div>
                     <div class="member-info wow fadeInUp">
                         <h4>Mariem Zarai</h4>
-                        <h5 class="highlight">fondatrice</h5>
-                        <p>Ingénieur en informatique et coordinatrice du projet qui assurent la validation</p>
+                        <h5 class="highlight">Co-Founder</h5>
+{{--                        <p>Ingénieur en informatique et coordinatrice du projet qui assurent la validation</p>--}}
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-3 team-member">
                     <div class="effect effects wow fadeInUp">
                         <div class="img">
-                            <img src="{{asset('img/team/team-4.jpg')}}" class="img-responsive" alt="" />
+                            <img src="{{asset('img/team/yassine.png')}}" class="img-responsive" alt=""/>
                             <div class="overlay">
                                 <ul class="expand">
                                     <li class="social-icon">
@@ -296,8 +289,8 @@
                     </div>
                     <div class="member-info wow fadeInUp">
                         <h4>Yassine Mejri</h4>
-                        <h5 class="highlight">Back-END</h5>
-                        <p>Ingénieur en informatique spécialiste au création des bases de données et gestion de fichier</p>
+                        <h5 class="highlight">Co-Founder</h5>
+{{--                        <p>Ingénieur en informatique spécialiste au création des bases de données et gestion de fichier</p>--}}
                     </div>
                 </div>
             </div>
@@ -346,8 +339,7 @@
                 <div class="col-md-5 wow fadeInLeft">
                     <h4> Tunisie : </h4>
                     <address>
-                        16, Rue Khaled Ben walid<br>
-                        Ariana,  Tunis , Tunisie<br>
+                        Campus Universitaire de la Manouba، <br>Manouba 2010
                         <h4> Nous Contactez : </h4>
                         <address>
                             <abbr title="Phone">
@@ -365,7 +357,7 @@
             </div>
         </div>
     </section>
-    <div id="map"></div>
+{{--    <div id="map"></div>--}}
     <footer id="footer">
         <div class="footer-copyright">
             <div class="container">

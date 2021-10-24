@@ -5,7 +5,9 @@
             {{ Auth::user()->name }}
         @endif
         !
-    </h1><br></div>
+    </h1>
+        <br>
+    </div>
     <div class="align-middle align-content-center">
     <a type="button" class="text-center button1 align-middle float-start" href='/vehicules/create'><span>Ajouter un nouveau vehicule</span></a>
     <a type="button" class="text-center button1 align-middle float-start" href='/test'><span>Passer un Quiz.</span></a>
