@@ -40,7 +40,7 @@
                         <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/quiz/ajouter">Ajouter Quiz</a></li>
                         @endif
                     @if(Auth::user()->hasRole('moniteur'))
-                        <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/vehicules">Liste Vehicule</a></li>
+                        <!--<li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/vehicules">Liste Vehicule</a></li>-->
                         <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/users">Liste Users</a></li>
                         <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/rdv/ajouter">Ajouter Rendez-vous</a></li>
                             @if(!Auth::user()->hasRole('admin'))

@@ -58,9 +58,10 @@
                         <li class="to-section btn-check-preso"><a class="nav-link active colorhover sizebox" href="/quiz/ajouter">Ajouter Quiz</a></li>
                         @endif
                         @if(Auth::user()->hasRole('moniteur'))
-                        <li class="to-section btn-check-preso"><a class="nav-link active colorhover sizebox" href="/vehicules">Liste Vehicule</a></li>
+                        <!--<li class="to-section btn-check-preso"><a class="nav-link active colorhover sizebox" href="/vehicules">Liste Vehicule</a></li>-->
                         <li class="to-section btn-check-preso"><a class="nav-link active colorhover sizebox" href="/users">Liste Users</a></li>
                         <li class="to-section btn-check-preso"><a class="nav-link active colorhover sizebox" href="/rdv/ajouter">Ajouter Rendez-vous</a></li>
+                            <li class="fw-bold nav-item btn-check-preso"><a class="nav-link active colorhover mt-1" href="/rdv/schedule">Calendrier</a></li>
                         @elseif(Auth::user()->hasRole('userpaid'))
                             <li class="to-section btn-check-preso"><a class="nav-link active colorhover sizebox" href="/test">Passer un Quiz</a></li>
                             <li class="to-section btn-check-preso"><a class="nav-link active colorhover sizebox" href="/rdv/list">Reserver une séance</a></li>
